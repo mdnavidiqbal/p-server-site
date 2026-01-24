@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Login = () => {
   return (
@@ -55,7 +56,6 @@ const Login = () => {
             </div>
 
             <a
-              href="#"
               className="ms-auto text-sm font-medium text-fg-brand hover:underline"
             >
               Lost Password?
@@ -64,16 +64,16 @@ const Login = () => {
 
           <button
             type="button"
-            className="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none w-full mb-3"
+            className="text-black bg-blue-600 box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none w-full mb-3"
           >
             Login to your account
           </button>
 
           <div className="text-sm font-medium text-body">
             Not registered?{" "}
-            <a href="#" className="text-fg-brand hover:underline">
-              Create account
-            </a>
+            <Link to="/registration"><a className="text-fg-brand hover:underline">
+                Create account
+            </a></Link>
           </div>
         </form>
       </div>
