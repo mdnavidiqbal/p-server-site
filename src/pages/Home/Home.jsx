@@ -1,10 +1,15 @@
 import React from 'react';
 import Banner from '../../components/Banner';
+import Hero from '../../components/Hero';
+import HelpSection from '../../components/HelpSection';
 
 const Home = () => {
     return (
-        <div className='w-500px bg-[#FAF7F3] rounded-lg'>
+        <div >
             <Banner></Banner>
+            <HelpSection></HelpSection>
+            <Hero></Hero>
+            
         </div>
     );
 };

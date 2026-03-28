@@ -1,44 +1,3 @@
-// import React from "react";
-// import { Link, NavLink } from "react-router";
-
-// const Navbar = () => {
-//   return (
-//     <div className="navbar bg-base-100 shadow-sm mx-auto">
-
-//       {/* LEFT */}
-//       <div className="navbar-start ml-[70px]">
-//      <Link to="/" className="btn btn-ghost text-xl">
-//           Nikha
-//         </Link>
-//       </div>
-
-//       {/* CENTER */}
-//       <div className="navbar-center hidden lg:flex">
-//         <ul className="menu menu-horizontal px-1 gap-4">
-//           <li>
-//             <Link to="/">Home</Link>
-//           </li>
-//           <li>
-//             <Link to="/login">Login</Link>
-//           </li>
-//           <li>
-//             <Link to="/applymarriage">Apply Marriage</Link>
-//           </li>
-//         </ul>
-//       </div>
-
-//       {/* RIGHT */}
-//       <div className="navbar-end mr-[70px]">
-//         <Link to="/createbiodata" className="btn btn-ghost text-xl">
-//           Create Bio-data
-//         </Link>
-//       </div>
-
-//     </div>
-//   );
-// };
-
-// export default Navbar;
 
 import React, { useState } from "react";
 import { Link } from "react-router";
@@ -70,7 +29,7 @@ const Navbar = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/login">Login</Link>
+            <Link to="/myprofile">My Profile</Link>
           </li>
           <li>
             <Link to="/applymarriage">Apply Marriage</Link>
@@ -81,8 +40,8 @@ const Navbar = () => {
       {/* Desktop Create Bio-data Button & Mobile Menu - RIGHT */}
       <div className="navbar-end mr-4 lg:mr-10">
         {/* Desktop Create Bio-data Button */}
-        <Link to="/createbiodata" className="btn btn-primary hidden lg:flex">
-          Create Bio-data
+        <Link to="/login" className="btn btn-primary hidden lg:flex">
+          Login
         </Link>
         
         {/* Mobile Dropdown Menu Button - DaisyUI Details Element Use */}
@@ -115,8 +74,8 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/login" onClick={closeMenu}>
-                Login
+              <Link to="/myprofile" onClick={closeMenu}>
+                My Profile
               </Link>
             </li>
             <li>
@@ -125,8 +84,8 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/createbiodata" onClick={closeMenu}>
-                Create Bio-data
+              <Link to="/login" onClick={closeMenu}>
+                Login
               </Link>
             </li>
           </ul>

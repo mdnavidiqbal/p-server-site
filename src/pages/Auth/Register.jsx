@@ -4,7 +4,9 @@ import { Link } from "react-router";
 
 const Register = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div
+      className="min-h-screen flex items-center justify-center bg-gradient-to-r from-[#1c92d2] to-[#f2fcfe]"
+    >
       <div className="w-full max-w-sm bg-neutral-primary-soft p-6 border border-default rounded-base shadow-xs">
         <form class="max-w-md mx-auto">
           <h1 className="text-center font-bold text-3xl">Create Account</h1>
