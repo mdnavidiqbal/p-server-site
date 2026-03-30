@@ -32,7 +32,10 @@ const Navbar = () => {
             <Link to="/myprofile">My Profile</Link>
           </li>
           <li>
-            <Link to="/applymarriage">Apply Marriage</Link>
+            <Link to="/hero">Our Services</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact Us</Link>
           </li>
         </ul>
       </div>
@@ -79,15 +82,19 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/applymarriage" onClick={closeMenu}>
-                Apply Marriage
+              <Link to="/hero" onClick={closeMenu}>
+                Our Services
               </Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact Us</Link>
             </li>
             <li>
               <Link to="/login" onClick={closeMenu}>
                 Login
               </Link>
             </li>
+
           </ul>
         </div>
       </div>

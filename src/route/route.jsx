@@ -6,7 +6,9 @@ import Register from "../pages/Auth/Register";
 import MyProfile from "../pages/MyProfile/MyProfile";
 import ApplyMarriage from "../pages/Marriage/ApplyMarriage";
 import CreateBiodata from "../pages/BioData/CreateBiodata";
-
+import Hero from "../components/Hero";
+import Contact from "../pages/Contact/Contact";
+import KabinNama from "../pages/KabinNama/KabinNama";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +38,18 @@ export const router = createBrowserRouter([
         {
             path:"/createbiodata",
             Component:CreateBiodata
+        },
+        {
+            path:"/kabinnama",
+            Component:KabinNama
+        },
+        {
+            path:"/hero",
+            Component:Hero
+        },
+        {
+            path:"/contact",
+            Component: Contact
         }
     ]
   },
