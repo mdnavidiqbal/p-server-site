@@ -48,11 +48,11 @@ export const router = createBrowserRouter([
         },
         {
             path:"/kabinnama",
-           element:<KabinNama/>
+           element:<PrivateRoute><KabinNama/></PrivateRoute>
         },
         {
             path:"/hero",
-            element:<Hero/>
+            element:<PrivateRoute><Hero/></PrivateRoute>
         },
         {
             path:"/contact",
