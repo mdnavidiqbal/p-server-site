@@ -9,48 +9,61 @@ import CreateBiodata from "../pages/BioData/CreateBiodata";
 import Hero from "../components/Hero";
 import Contact from "../pages/Contact/Contact";
 import KabinNama from "../pages/KabinNama/KabinNama";
+import PrivateRoute from "../provider/PrivateRoute";
+import Intro from "../pages/IntroPage/Intro";
+import AdminDashboard from "../pages/Dashboard/AdminDashboard";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    Component: RootLayout,
+    element:<RootLayout/>,
     children:[
         {
             index:true,
-            Component:Home
+            element:<Intro></Intro>
+        },
+        {
+            path:"/home",
+            element:<Home/>
         },
         {
             path:"/login",
-            Component:Login
+            element:<Login/>
         },
         {
             path:"/registration",
-            Component:Register
+            element:<Register/>
         },
         {
             path:"/myprofile",
-            Component:MyProfile
+            element:<MyProfile/>
         },
         {
             path:"/applymarriage",
-            Component:ApplyMarriage
+            element:<ApplyMarriage/>
         },
         {
             path:"/createbiodata",
-            Component:CreateBiodata
+            element:<PrivateRoute><CreateBiodata/></PrivateRoute>
         },
         {
             path:"/kabinnama",
-            Component:KabinNama
+           element:<KabinNama/>
         },
         {
             path:"/hero",
-            Component:Hero
+            element:<Hero/>
         },
         {
             path:"/contact",
-            Component: Contact
+            element:<Contact/>
+        },
+        {
+            path:"/dashboard",
+            element:<AdminDashboard/>
         }
+    
     ]
   },
 ]);
+

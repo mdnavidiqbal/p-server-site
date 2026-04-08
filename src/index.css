@@ -12,3 +12,18 @@ body{
   font-optical-sizing: auto;
   font-style: normal;
 }
+
+@layer utilities {
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    -webkit-text-fill-color: black;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Admin Dashboard Design */
+

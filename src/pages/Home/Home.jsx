@@ -11,8 +11,6 @@ const Home = () => {
             <HelpSection></HelpSection>
             <ChoicenUs></ChoicenUs>
             <Hero></Hero>
-            
-            
         </div>
     );
 };
