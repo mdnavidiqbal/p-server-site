@@ -1,55 +1,21 @@
 
-import * as React from 'react';
-import { styled, useTheme } from '@mui/material/styles';
+import { createTheme, styled, ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import MuiDrawer from '@mui/material/Drawer';
+
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-
+import { useMemo, useState } from 'react';
+import SideList from './SideList';
+import Tooltip from '@mui/material/Tooltip';
+import HomeIcon from '@mui/icons-material/Home';
+import { useNavigate } from 'react-router';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Brightness3Icon from '@mui/icons-material/Brightness3';
 const drawerWidth = 240;
-
-const openedMixin = (theme) => ({
-  width: drawerWidth,
-  transition: theme.transitions.create('width', {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.enteringScreen,
-  }),
-  overflowX: 'hidden',
-});
-
-const closedMixin = (theme) => ({
-  transition: theme.transitions.create('width', {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  overflowX: 'hidden',
-  width: `calc(${theme.spacing(7)} + 1px)`,
-  [theme.breakpoints.up('sm')]: {
-    width: `calc(${theme.spacing(8)} + 1px)`,
-  },
-});
-
-const DrawerHeader = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
-  padding: theme.spacing(0, 1),
-  ...theme.mixins.toolbar,
-}));
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -69,35 +35,28 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-  ({ theme, open }) => ({
-    width: drawerWidth,
-    flexShrink: 0,
-    whiteSpace: 'nowrap',
-    boxSizing: 'border-box',
-    ...(open
-      ? {
-          ...openedMixin(theme),
-          '& .MuiDrawer-paper': openedMixin(theme),
-        }
-      : {
-          ...closedMixin(theme),
-          '& .MuiDrawer-paper': closedMixin(theme),
-        }),
-  }),
-);
+
 
 export default function AdminDashboard() {
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [dark,setDark]= useState(true)
+
+  const darkTheme = useMemo(()=>createTheme({
+    palette:{
+      mode: dark? "dark" : "light"
+    }
+  }),[dark])
 
   const handleDrawerOpen = () => setOpen(true);
-  const handleDrawerClose = () => setOpen(false);
 
-  const mainMenuItems = ['Dashboard', 'Users', 'Registrations', 'Settings'];
-  const secondaryMenuItems = ['Reports', 'Trash', 'Help'];
+
+  // const mainMenuItems = ['Dashboard', 'Users', 'Registrations', 'Settings'];
+  // const secondaryMenuItems = ['Reports', 'Trash', 'Help'];
+
+  const navigate = useNavigate()
 
   return (
+    <ThemeProvider theme={darkTheme}>
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
@@ -111,79 +70,25 @@ export default function AdminDashboard() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Tooltip title="Go Back To Home Page">
+            <IconButton sx={{mr:1}} onClick={()=>navigate("/home")}>
+              <HomeIcon/>
+            </IconButton>
+            
+          </Tooltip>
+          <Typography variant="h6" noWrap component="div" sx={{flexGrow:1}}>
             Admin Dashboard
           </Typography>
+          <IconButton onClick={()=> setDark(!dark)}>
+            {
+              dark? <Brightness7Icon/> : <Brightness3Icon/>            
+              
+            }
+          </IconButton>
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <List>
-          {mainMenuItems.map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  px: 2.5,
-                  justifyContent: open ? 'initial' : 'center',
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    justifyContent: 'center',
-                    mr: open ? 3 : 'auto',
-                  }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {secondaryMenuItems.map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  px: 2.5,
-                  justifyContent: open ? 'initial' : 'center',
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    justifyContent: 'center',
-                    mr: open ? 3 : 'auto',
-                  }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-        <Typography paragraph>
-          Welcome to the Admin Dashboard! Here you can manage users, view pending registrations,
-          check reports, and configure settings.
-        </Typography>
-        <Typography paragraph>
-          Use the sidebar to navigate between different sections. The drawer can be expanded or
-          collapsed using the menu icon.
-        </Typography>
-      </Box>
+      <SideList open={open} setOpen={setOpen} />
     </Box>
+    </ThemeProvider>
   );
 }
