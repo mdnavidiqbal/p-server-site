@@ -1,9 +1,13 @@
 import React, { use } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../provider/AuthProvider";
+import { useLocation } from "react-router";
 
 const Register = () => {
-  const { createUser,setUser } = use(AuthContext);
+  const { createUser, setUser, googleLogin } = use(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/home";
   const handleRegister = (e) => {
     e.preventDefault();
     console.log(e.target);
@@ -12,22 +16,73 @@ const Register = () => {
     const email = form.email.value;
     const photourl = form.photourl.value;
     const password = form.password.value;
-    console.log({ name, email,photourl,
-      
-      password });
+    console.log({ name, email, photourl, password });
+    const newRegister = { name, email, photourl, password };
+    fetch("http://localhost:3000/Register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newRegister),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("After saving user", data);
+      });
+
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         // console.log(user);
         setUser(user);
+        navigate("/home");
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        alert(errorMessage)
+        alert(errorMessage, errorCode);
         // ..
       });
   };
+ 
+  const handleGoogle = (e) => {
+  e.preventDefault();
+
+  googleLogin()
+    .then((result) => {
+      const user = result.user;
+
+      const newUser = {
+        name: user.displayName,
+        email: user.email,
+        photourl: user.photoURL,
+        created_at: new Date().toISOString(),
+      };
+
+      // ✅ FIRST: save to database
+      fetch("http://localhost:3000/Register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newUser),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Google User Saved:", data);
+
+          // ✅ THEN navigate AFTER DB save
+          navigate(from, { replace: true });
+        })
+        .catch((err) => {
+          console.log("DB error:", err);
+        });
+    })
+    .catch((error) => {
+      console.log("Google login error:", error.message);
+    });
+};
+ 
   return (
     <div className="min-h-screen flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-20 px-4 bg-gradient-to-r from-[#1c92d2] to-[#f2fcfe]">
       {/* Left Text */}
@@ -72,7 +127,7 @@ const Register = () => {
             </div>
 
             {/* Email */}
-            
+
             <div className="relative z-0 w-full mb-5 group">
               <input
                 name="email"
@@ -138,7 +193,10 @@ const Register = () => {
             </button>
 
             {/* Google Button */}
-            <button className="mt-3 w-full flex items-center justify-center gap-2 bg-white text-black border border-gray-300 font-medium rounded-lg text-sm px-6 py-2.5">
+            <button
+              onClick={handleGoogle}
+              className="mt-3 w-full flex items-center justify-center gap-2 bg-white text-black border border-gray-300 font-medium rounded-lg text-sm px-6 py-2.5"
+            >
               <svg width="16" height="16" viewBox="0 0 512 512">
                 <path
                   fill="#34a853"

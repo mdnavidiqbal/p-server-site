@@ -25,5 +25,20 @@ html {
   scroll-behavior: smooth;
 }
 
+@keyframes slideInRight {
+  from {
+    transform: translateX(40%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.25s ease forwards;
+}
+
 /* Admin Dashboard Design */
 

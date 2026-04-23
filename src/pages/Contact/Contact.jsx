@@ -2,14 +2,14 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <div className="w-full overflow-x-hidden">
+    <div className="w-full overflow-x-hidden bg-gradient-to-r from-[#DBE6F6] to-[#86A8E7]">
       {/* Header Section */}
       <div className="flex items-center justify-center min-h-[150px] sm:min-h-[200px] px-4 mt-6 sm:mt-8 md:mt-10">
         <div className="relative text-center max-w-[90%] sm:max-w-[80%] md:max-w-full">
           <h1 className="font-bold text-green-700 text-xl sm:text-2xl md:text-3xl lg:text-4xl pt-6 sm:pt-8 md:pt-10 px-4">
             We are here to assist you.
           </h1>
-          
+
           {/* Responsive Image Container */}
           <div className="absolute -top-4 -right-4 sm:-top-5 sm:-right-8 md:-right-12 lg:-right-16 w-[60px] h-[60px] sm:w-[80px] sm:h-[80px] md:w-[100px] md:h-[100px]">
             <img
@@ -24,7 +24,6 @@ const Contact = () => {
       {/* Cards Grid Section */}
       <div className="flex items-center justify-center px-3 sm:px-4 md:px-6 py-6 sm:py-8 md:py-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 sm:gap-5 md:gap-6 max-w-7xl mx-auto">
-          
           {/* Dhaka Branch */}
           <div className="bg-green-200 w-full max-w-sm mx-auto p-4 sm:p-5 md:p-6 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
             <svg
@@ -47,9 +46,9 @@ const Contact = () => {
               <hr className="mt-1 sm:mt-2" />
             </h5>
             <p className="mb-3 text-sm sm:text-base text-gray-600 leading-relaxed">
-              Way To Nikah, Third Floor <br /> 
-              Noble Building, Above Gramin Bank, Bashundhara <br /> 
-              Madani Road, Bashundhara, Dhaka, Bangladesh <br /> 
+              Way To Nikah, Third Floor <br />
+              Noble Building, Above Gramin Bank, Bashundhara <br />
+              Madani Road, Bashundhara, Dhaka, Bangladesh <br />
               Call: 7025115588 <br className="hidden sm:block" />
               Mob: 01702541166
             </p>
@@ -77,9 +76,9 @@ const Contact = () => {
               <hr className="mt-1 sm:mt-2" />
             </h5>
             <p className="mb-3 text-sm sm:text-base text-gray-600 leading-relaxed">
-              Way To Nikah, Third Floor <br /> 
-              Mufizuddin Building, Above Shawpna, Noumuhol <br /> 
-              A/B Guho Road, Mymensingh Sadar, Mymensingh, Bangladesh <br /> 
+              Way To Nikah, Third Floor <br />
+              Mufizuddin Building, Above Shawpna, Noumuhol <br />
+              A/B Guho Road, Mymensingh Sadar, Mymensingh, Bangladesh <br />
               Call: 7025115588 <br className="hidden sm:block" />
               Mob: 01702544166
             </p>
@@ -107,9 +106,9 @@ const Contact = () => {
               <hr className="mt-1 sm:mt-2" />
             </h5>
             <p className="mb-3 text-sm sm:text-base text-gray-600 leading-relaxed">
-              Way To Nikah, Third Floor <br /> 
-              Noble Building, Above Gramin Bank, Bashundhara <br /> 
-              Madani Road, Bashundhara, Dhaka, Bangladesh <br /> 
+              Way To Nikah, Third Floor <br />
+              Noble Building, Above Gramin Bank, Bashundhara <br />
+              Madani Road, Bashundhara, Dhaka, Bangladesh <br />
               Call: 7025115588 <br className="hidden sm:block" />
               Mob: 01702544116
             </p>
@@ -137,13 +136,75 @@ const Contact = () => {
               <hr className="mt-1 sm:mt-2" />
             </h5>
             <p className="mb-3 text-sm sm:text-base text-gray-600 leading-relaxed">
-              Way To Nikah, Third Floor <br /> 
-              Noble Building, Above Gramin Bank, Bashundhara <br /> 
-              Madani Road, Bashundhara, Dhaka, Bangladesh <br /> 
+              Way To Nikah, Third Floor <br />
+              Noble Building, Above Gramin Bank, Bashundhara <br />
+              Madani Road, Bashundhara, Dhaka, Bangladesh <br />
               Call: 7025115588 <br className="hidden sm:block" />
               Mob: 01702441166
             </p>
           </div>
+        </div>
+      </div>
+
+      <div className="pb-5">
+        <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 bg-gradient-to-r from-[#67B26F] to-[#4ca2cd]  dark:text-gray-800">
+          <div className="flex flex-col justify-between">
+            <div className="space-y-2">
+              <h2 className="text-4xl font-bold leading-tight lg:text-5xl">
+                Let's talk!
+              </h2>
+              <div className="dark:text-gray-600">
+                Vivamus in nisl metus? Phasellus.
+              </div>
+            </div>
+            {/* <img
+              src="/src/assets/customer_care.png"
+              alt=""
+              className="p-6 rounded-4xl h-50 md:h-60 "
+            /> */}
+          </div>
+          <form noValidate="" className="space-y-6">
+            <div>
+              <label htmlFor="name" className="text-sm">
+                Full name
+              </label>
+              <input
+                id="name"
+                type="text"
+                placeholder="Enter Your Name"
+                className="w-full p-3 rounded dark:bg-gray-100"
+              
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="text-sm">
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                className="w-full p-3 rounded dark:bg-gray-100"
+                placeholder="Enter Your Email"
+              />
+            </div>
+            <div>
+              <label htmlFor="message" className="text-sm">
+                Message
+              </label>
+              <textarea
+                id="message"
+                rows="3"
+                className="w-full p-3 rounded dark:bg-gray-100"
+                placeholder="Type Your Message"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded dark:bg-pink-600 dark:text-gray-50"
+            >
+              Send Message
+            </button>
+          </form>
         </div>
       </div>
     </div>

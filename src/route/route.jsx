@@ -11,63 +11,101 @@ import Contact from "../pages/Contact/Contact";
 import KabinNama from "../pages/KabinNama/KabinNama";
 import PrivateRoute from "../provider/PrivateRoute";
 import Intro from "../pages/IntroPage/Intro";
-import AdminDashboard from "../pages/Dashboard/AdminDashboard";
+import { Component } from "lucide-react";
+import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
+import SiteUsers from "../pages/DashboardPages/SiteUsers/SiteUsers";
+import UserProfile from "../pages/DashboardPages/UserProfile/UserProfile";
+import Statistics from "../pages/DashboardPages/Statistics/Statistics";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element:<RootLayout/>,
-    children:[
-        {
-            index:true,
-            element:<Intro></Intro>
-        },
-        {
-            path:"/home",
-            element:<Home/>
-        },
-        {
-            path:"/login",
-            element:<Login/>
-        },
-        {
-            path:"/registration",
-            element:<Register/>
-        },
-        {
-            path:"/myprofile",
-            element:<MyProfile/>
-        },
-        {
-            path:"/applymarriage",
-            element:<ApplyMarriage/>
-        },
-        {
-            path:"/createbiodata",
-            element:<PrivateRoute><CreateBiodata/></PrivateRoute>
-        },
-        {
-            path:"/kabinnama",
-           element:<PrivateRoute><KabinNama/></PrivateRoute>
-        },
-        {
-            path:"/hero",
-            element:<PrivateRoute><Hero/></PrivateRoute>
-        },
-        {
-            path:"/contact",
-            element:<Contact/>
-        },
-        {
-            path:"/dashboard",
-            element:<AdminDashboard/>
-        },
-        {
-            path:"*",
-            element:<Home/>
-        }
-    
-    ]
+    element: <RootLayout />,
+    children: [
+      {
+        index: true,
+        element: <Intro></Intro>,
+      },
+      {
+        path: "/home",
+        element: <Home />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/registration",
+        element: <Register />,
+      },
+      {
+        path: "/myprofile",
+        element: <MyProfile />,
+      },
+      {
+        path: "/applymarriage",
+        element: <ApplyMarriage />,
+      },
+      {
+        path: "/createbiodata",
+        element: (
+          <PrivateRoute>
+            <CreateBiodata />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/kabinnama",
+        element: (
+          <PrivateRoute>
+            <KabinNama />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/hero",
+        element: (
+          <PrivateRoute>
+            <Hero />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "*",
+        element: <Home />,
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        index: true,
+        element:<Statistics/>
+      },
+      {
+        path: "site-users",
+        Component: SiteUsers,
+        // loader: async()=>{
+        //     const res = await fetch("http://localhost:3000/Register");
+        //     const data = await res.json();
+        //     return data.data;
+
+        // }
+      },
+      {
+        path: "dashboard-profile",
+        Component: UserProfile,
+      },
+    ],
   },
 ]);
-

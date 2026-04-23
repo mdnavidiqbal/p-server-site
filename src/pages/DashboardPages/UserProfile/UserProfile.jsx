@@ -1,12 +1,15 @@
-import React, { use } from "react";
-import { AuthContext } from "../../provider/AuthProvider";
+import { use } from "react";
+import { AuthContext } from "../../../provider/AuthProvider";
 import { Link } from "react-router";
+import useRole from "../../../hooks/useRole";
 
-const MyProfile = () => {
+const UserProfile = () => {
   const { user } = use(AuthContext);
+  const [role,isRoleLoading] = useRole();
+  console.log(role,isRoleLoading)
   console.log(user);
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-20 px-4 bg-gradient-to-r from-[#1c92d2] to-[#f2fcfe]">
+    <div>
       <div className="max-w-lg mx-auto bg-base-200 p-6 rounded-xl shadow-2xl text-center my-30 ">
         <h2 className="text-3xl font-bold mb-4">My Profile</h2>
         <img
@@ -14,21 +17,23 @@ const MyProfile = () => {
           alt="profile"
           className="w-32 h-32 rounded-full mx-auto mb-4"
         />
+        <h3 className="text-xl font-semibold">{role}</h3>
         <h3 className="text-xl font-semibold">{user?.displayName}</h3>
-        <p className="text-sm text-gray-600">{user?.email}</p>
+        <p className="text-sm text-gray-600 pt-3">{user?.email}</p>
+        <h4 className="text-sm pt-3">User ID:-{user?.uid}</h4>
 
         <div className="mt-6 flex justify-center gap-4">
           <Link
-            to="/kabinnama"
+            to=""
             className="btn btn-primary bg-purple-500 hover:bg-purple-600"
           >
-            Apply Registration
+            Update Profile
           </Link>
           <Link
-            to="/createbiodata"
+            to="/"
             className="btn btn-primary bg-purple-500 hover:bg-purple-600"
           >
-            Create Bio-Data
+            Reset Password
           </Link>
         </div>
       </div>
@@ -36,4 +41,4 @@ const MyProfile = () => {
   );
 };
 
-export default MyProfile;
+export default UserProfile;

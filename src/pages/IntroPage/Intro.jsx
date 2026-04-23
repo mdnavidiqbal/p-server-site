@@ -63,7 +63,8 @@ const Intro = () => {
           transition={{ delay: 0.6 }}
           className="text-lg md:text-xl mb-8 max-w-xl"
         >
-          সহজ, নিরাপদ এবং দ্রুত অনলাইনে আপনার বিবাহ নিবন্ধন সম্পন্ন করুন
+         Complete your marriage registration online—simple, secure, and fast.
+
         </motion.p>
 
         <motion.button
@@ -103,7 +104,7 @@ const Intro = () => {
             </motion.div>
           ))}
         </div>
-      </section>\
+      </section>
       <section>
           
       </section>

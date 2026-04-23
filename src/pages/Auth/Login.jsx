@@ -1,28 +1,43 @@
 import React, { use } from "react";
-import { Link, Navigate, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
-  const { signIn } = use(AuthContext);
+  const { signIn,googleLogin } = use(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/home";
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log({ email, password });
-    signIn(email,password)
-      .then(result=>{
+    signIn(email, password)
+      .then((result) => {
         const user = result.user;
         console.log(user);
-        navigate("/home");
+        // navigate("/home");
+        navigate(from,{replace:true})
+
       })
       .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-        alert(errorCode,errorMessage)
-  });
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage,errorCode);
+      });
   };
+  const handleGoogle = async() =>{
+    googleLogin()
+    .then((result)=>{
+      console.log(result)
+      navigate(from,{replace:true} )
+      
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+  }
   return (
     <div className="min-h-screen flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-20 px-4 bg-gradient-to-r from-[#1c92d2] to-[#f2fcfe]">
       {/* Left Text */}
@@ -92,9 +107,11 @@ const Login = () => {
             >
               Login
             </button>
-
+            <p className="text-sm text-center mr-54 pt-4 text-blue-600 hover:underline">
+              Forgot password?{" "}
+            </p>
             {/* Google Button */}
-            <button className="mt-3 w-full flex items-center justify-center gap-2 bg-white text-black border border-gray-300 font-medium rounded-lg text-sm px-6 py-2.5">
+            <button onClick={handleGoogle} className="mt-3 w-full flex items-center justify-center gap-2 bg-white text-black border border-gray-300 font-medium rounded-lg text-sm px-6 py-2.5">
               <svg width="16" height="16" viewBox="0 0 512 512">
                 <path
                   fill="#34a853"
@@ -115,7 +132,6 @@ const Login = () => {
               </svg>
               Continue with Google
             </button>
-
             {/* Signup */}
             <p className="text-sm text-center pt-4">
               Don't have an account?{" "}

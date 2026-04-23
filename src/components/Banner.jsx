@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
+import TextType from "./TextType";
 
 const images = [
   "https://images.unsplash.com/photo-1529636798458-92182e662485?q=80&w=1600",
@@ -25,7 +26,7 @@ const Banner = () => {
   };
 
   return (
-    <div className="relative w-full h-[500px] overflow-hidden">
+    <div className="relative w-full h-[880px] overflow-hidden">
       {/* Slider */}
       <div
         className="flex h-full transition-transform duration-1000 ease-in-out"
@@ -51,19 +52,38 @@ const Banner = () => {
       <div className="absolute inset-0 flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center lg:text-left">
-            <h1 className="font-bold text-white text-3xl sm:text-4xl lg:text-[50px]">
+            {/* <h1 className="font-bold text-white text-3xl sm:text-4xl lg:text-[50px]">
               Join NO.1 Muslim Nikha <br /> Registartion Site 
-            </h1>
-
-            <p className="mt-4 text-white text-sm sm:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            </h1> */}
+            <TextType className="font-bold text-white text-3xl sm:text-4xl lg:text-[50px]"
+              text={[
+                "Join NO.1 Muslim Nikha",
+                "Registartion Site",
+                "All The Best",
+                "Happy Journey!",
+              ]}
+              typingSpeed={75}
+              pauseDuration={1500}
+              showCursor
+              cursorCharacter="_"
+              texts={[
+                "Welcome to React Bits! Good to see you!",
+                "Build some amazing experiences!",
+              ]}
+              deletingSpeed={50}
+              variableSpeedEnabled={false}
+              variableSpeedMin={60}
+              variableSpeedMax={120}
+              cursorBlinkDuration={0.5}
+            />
+            {/* <p className="mt-4 text-white text-sm sm:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0">
               Begin your forever journey with us. Online Nikah Service brings
               couples together. We aim to provide quick and affordable Nikah
               services.
               <br className="hidden sm:block" />
               Our Islamic Nikah service allows you to perform your Nikah
               ceremony from the comfort of your home.
-            </p>
-
+            </p> */}
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-8">
               <Link
@@ -78,11 +98,9 @@ const Banner = () => {
               >
                 Online Registration
               </Link>
-
-              
             </div>
           </div>
-        </div>
+        </div> 
       </div>
 
       {/* Dots Indicator */}
