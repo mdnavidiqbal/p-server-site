@@ -13,7 +13,7 @@ const UserProfile = () => {
       <div className="max-w-lg mx-auto bg-base-200 p-6 rounded-xl shadow-2xl text-center my-30 ">
         <h2 className="text-3xl font-bold mb-4">My Profile</h2>
         <img
-          src={user?.photoURL}
+          src={user?.photourl}
           alt="profile"
           className="w-32 h-32 rounded-full mx-auto mb-4"
         />

@@ -227,14 +227,6 @@ const Navbar = () => {
                 </Link>
               </li>
             )}
-            {user && (
-              <li>
-                <Link to="dashboard">
-                  <CgProfile className="text-2xl" /> Dashboard
-                </Link>
-              </li>
-            )}
-            
           </ul>
         </div>
 
@@ -317,7 +309,11 @@ const Navbar = () => {
                   </Link>
                 </li>
               )}
-
+              {user && (
+                <li>
+                  <Link to="dashboard">Dashboard</Link>
+                </li>
+              )}
               {user ? (
                 <li>
                   <button onClick={handleLogout} className="text-red-500">

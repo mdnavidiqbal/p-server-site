@@ -229,8 +229,8 @@
 
 // export default KabinNama;
 
-import React, { useState, useCallback, use } from "react";
-import { data } from "react-router";
+import React, { useState, useCallback, use, useEffect } from "react";
+import { data, useNavigate } from "react-router";
 import { AuthContext } from "../../provider/AuthProvider";
 
 /* ---------------- INPUT COMPONENT ---------------- */
@@ -254,6 +254,8 @@ const Input = React.memo(({ label, name, type = "text", value, onChange }) => {
 
 /* ---------------- MAIN COMPONENT ---------------- */
 export default function KabinNama() {
+  const { user } = use(AuthContext);
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     groomName: "",
     groomFather: "",
@@ -282,17 +284,28 @@ export default function KabinNama() {
     witness1Name: "",
     witness1Nid: "",
     witness1Address: "",
-    witness1PHN:"",
+    witness1PHN: "",
 
     witness2Name: "",
     witness2Nid: "",
     witness2Address: "",
-    witness2PHN:"",
+    witness2PHN: "",
 
     kaziName: "",
     kaziLicense: "",
     kaziAddress: "",
+
+    useremail: "",
   });
+  /* ✅ AUTO SET EMAIL */
+  useEffect(() => {
+    if (user?.email) {
+      setForm((prev) => ({
+        ...prev,
+        useremail: user.email,
+      }));
+    }
+  }, [user]);
 
   /* ✅ FIXED CHANGE HANDLER */
   const handleChange = useCallback((e) => {
@@ -308,23 +321,7 @@ export default function KabinNama() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:3000/kabin",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json",
-      },
-      body:JSON.stringify(form),
-    })
-      .then((res)=>res.json())
-      .then((data)=>{
-        console.log(data);
-        alert("Form submit sucessfully")
-      })
-      .catch((error)=>{
-        console.log(error);
-        alert("Faild to post data")
-      })
-
+    // ✅ আগে validation
     for (let key in form) {
       if (!form[key]?.toString().trim()) {
         alert("Please fill all required fields!");
@@ -332,10 +329,24 @@ export default function KabinNama() {
       }
     }
 
-
-
-    console.log("Kabin Nama Data:", form);
-    alert("Form submitted successfully!");
+    // ✅ তারপর API call
+    fetch("http://localhost:3000/kabin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        alert("Form submit successfully");
+        navigate("/home")
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Failed to post data");
+      });
   };
 
   return (
@@ -346,19 +357,61 @@ export default function KabinNama() {
         </h1>
 
         <form onSubmit={handleSubmit} className="space-y-8">
-
           {/* ---------------- GROOM ---------------- */}
           <section>
             <h2 className="text-lg font-semibold mb-3">Groom Information</h2>
             <div className="grid md:grid-cols-2 gap-4">
-              <Input label="Name" name="groomName" value={form.groomName} onChange={handleChange}  />
-              <Input label="Date of Birth" name="groomDob" type="date" value={form.groomDob} onChange={handleChange} />
-              <Input label="NID Number" name="groomNid" type="text" value={form.groomNid} onChange={handleChange} />
-              <Input label="Phone Number" name="groomPHN" type="tel" value={form.groomPHN} onChange={handleChange} />
-              <Input label="Father's Name" name="groomFather" value={form.groomFather} onChange={handleChange} />
-              <Input label="Mother's Name" name="groomMother" value={form.groomMother} onChange={handleChange} />
-              <Input label="Address" name="groomAddress" value={form.groomAddress} onChange={handleChange} />
-              <Input label="Occupation" name="groomOccupation" value={form.groomOccupation} onChange={handleChange} />
+              <Input
+                label="Name"
+                name="groomName"
+                value={form.groomName}
+                onChange={handleChange}
+              />
+              <Input
+                label="Date of Birth"
+                name="groomDob"
+                type="date"
+                value={form.groomDob}
+                onChange={handleChange}
+              />
+              <Input
+                label="NID Number"
+                name="groomNid"
+                type="text"
+                value={form.groomNid}
+                onChange={handleChange}
+              />
+              <Input
+                label="Phone Number"
+                name="groomPHN"
+                type="tel"
+                value={form.groomPHN}
+                onChange={handleChange}
+              />
+              <Input
+                label="Father's Name"
+                name="groomFather"
+                value={form.groomFather}
+                onChange={handleChange}
+              />
+              <Input
+                label="Mother's Name"
+                name="groomMother"
+                value={form.groomMother}
+                onChange={handleChange}
+              />
+              <Input
+                label="Address"
+                name="groomAddress"
+                value={form.groomAddress}
+                onChange={handleChange}
+              />
+              <Input
+                label="Occupation"
+                name="groomOccupation"
+                value={form.groomOccupation}
+                onChange={handleChange}
+              />
             </div>
           </section>
 
@@ -366,14 +419,57 @@ export default function KabinNama() {
           <section>
             <h2 className="text-lg font-semibold mb-3">Bride Information</h2>
             <div className="grid md:grid-cols-2 gap-4">
-              <Input label="Name" name="brideName" value={form.brideName} onChange={handleChange} />
-              <Input label="Date of Birth" name="brideDob" type="date" value={form.brideDob} onChange={handleChange} />
-              <Input label="NID Number" name="brideNid" type="text" value={form.brideNid} onChange={handleChange} />
-              <Input label="Phone Number" name="bridePHN" type="tel" value={form.bridePHN} onChange={handleChange} />
-              <Input label="Father's Name" name="brideFather" value={form.brideFather} onChange={handleChange} />
-              <Input label="Mother's Name" name="brideMother" value={form.brideMother} onChange={handleChange} />
-              <Input label="Address" name="brideAddress" value={form.brideAddress} onChange={handleChange} />
-              <Input label="Occupation" name="brideOccupation" value={form.brideOccupation} onChange={handleChange} />
+              <Input
+                label="Name"
+                name="brideName"
+                value={form.brideName}
+                onChange={handleChange}
+              />
+              <Input
+                label="Date of Birth"
+                name="brideDob"
+                type="date"
+                value={form.brideDob}
+                onChange={handleChange}
+              />
+              <Input
+                label="NID Number"
+                name="brideNid"
+                type="text"
+                value={form.brideNid}
+                onChange={handleChange}
+              />
+              <Input
+                label="Phone Number"
+                name="bridePHN"
+                type="tel"
+                value={form.bridePHN}
+                onChange={handleChange}
+              />
+              <Input
+                label="Father's Name"
+                name="brideFather"
+                value={form.brideFather}
+                onChange={handleChange}
+              />
+              <Input
+                label="Mother's Name"
+                name="brideMother"
+                value={form.brideMother}
+                onChange={handleChange}
+              />
+              <Input
+                label="Address"
+                name="brideAddress"
+                value={form.brideAddress}
+                onChange={handleChange}
+              />
+              <Input
+                label="Occupation"
+                name="brideOccupation"
+                value={form.brideOccupation}
+                onChange={handleChange}
+              />
             </div>
           </section>
 
@@ -381,8 +477,19 @@ export default function KabinNama() {
           <section>
             <h2 className="text-lg font-semibold mb-3">Marriage Information</h2>
             <div className="grid md:grid-cols-2 gap-4">
-              <Input label="Marriage Date" name="marriageDate" type="date" value={form.marriageDate} onChange={handleChange} />
-              <Input label="Marriage Place" name="marriagePlace" value={form.marriagePlace} onChange={handleChange} />
+              <Input
+                label="Marriage Date"
+                name="marriageDate"
+                type="date"
+                value={form.marriageDate}
+                onChange={handleChange}
+              />
+              <Input
+                label="Marriage Place"
+                name="marriagePlace"
+                value={form.marriagePlace}
+                onChange={handleChange}
+              />
             </div>
           </section>
 
@@ -390,9 +497,27 @@ export default function KabinNama() {
           <section>
             <h2 className="text-lg font-semibold mb-3">Mahr (Dowry)</h2>
             <div className="grid md:grid-cols-3 gap-4">
-              <Input label="Total Amount" name="mahrTotal" type="number" value={form.mahrTotal} onChange={handleChange} />
-              <Input label="Paid Amount" name="mahrPaid" type="number" value={form.mahrPaid} onChange={handleChange} />
-              <Input label="Due Amount" name="mahrDue" type="number" value={form.mahrDue} onChange={handleChange} />
+              <Input
+                label="Total Amount"
+                name="mahrTotal"
+                type="number"
+                value={form.mahrTotal}
+                onChange={handleChange}
+              />
+              <Input
+                label="Paid Amount"
+                name="mahrPaid"
+                type="number"
+                value={form.mahrPaid}
+                onChange={handleChange}
+              />
+              <Input
+                label="Due Amount"
+                name="mahrDue"
+                type="number"
+                value={form.mahrDue}
+                onChange={handleChange}
+              />
             </div>
           </section>
 
@@ -400,16 +525,59 @@ export default function KabinNama() {
           <section>
             <h2 className="text-lg font-semibold mb-3">Witness Information</h2>
             <div className="grid md:grid-cols-2 gap-4">
-              <Input label="Witness 1 Name" name="witness1Name" value={form.witness1Name} onChange={handleChange} />
-              <Input label="NID" name="witness1Nid" type="text" value={form.witness1Nid} onChange={handleChange} />
-              <Input label="Address" name="witness1Address" value={form.witness1Address} onChange={handleChange} />
-              <Input label="Phone Number" name="witness1PHN" type="text" value={form.witness1PHN} onChange={handleChange} />
+              <Input
+                label="Witness 1 Name"
+                name="witness1Name"
+                value={form.witness1Name}
+                onChange={handleChange}
+              />
+              <Input
+                label="NID"
+                name="witness1Nid"
+                type="text"
+                value={form.witness1Nid}
+                onChange={handleChange}
+              />
+              <Input
+                label="Address"
+                name="witness1Address"
+                value={form.witness1Address}
+                onChange={handleChange}
+              />
+              <Input
+                label="Phone Number"
+                name="witness1PHN"
+                type="text"
+                value={form.witness1PHN}
+                onChange={handleChange}
+              />
 
-              <Input label="Witness 2 Name" name="witness2Name" value={form.witness2Name} onChange={handleChange} />
-              <Input label="NID" name="witness2Nid" type="text" value={form.witness2Nid} onChange={handleChange} />
-              <Input label="Address" name="witness2Address" value={form.witness2Address} onChange={handleChange} />
-              <Input label="Phone Number" name="witness2PHN" type="text" value={form.witness2PHN} onChange={handleChange} />
-              
+              <Input
+                label="Witness 2 Name"
+                name="witness2Name"
+                value={form.witness2Name}
+                onChange={handleChange}
+              />
+              <Input
+                label="NID"
+                name="witness2Nid"
+                type="text"
+                value={form.witness2Nid}
+                onChange={handleChange}
+              />
+              <Input
+                label="Address"
+                name="witness2Address"
+                value={form.witness2Address}
+                onChange={handleChange}
+              />
+              <Input
+                label="Phone Number"
+                name="witness2PHN"
+                type="text"
+                value={form.witness2PHN}
+                onChange={handleChange}
+              />
             </div>
           </section>
 
@@ -417,9 +585,38 @@ export default function KabinNama() {
           <section>
             <h2 className="text-lg font-semibold mb-3">Kazi Information</h2>
             <div className="grid md:grid-cols-2 gap-4">
-              <Input label="Name" name="kaziName" value={form.kaziName} onChange={handleChange} />
-              <Input label="License Number" name="kaziLicense" type="text" value={form.kaziLicense} onChange={handleChange} />
-              <Input label="Address" name="kaziAddress" value={form.kaziAddress} onChange={handleChange} />
+              <Input
+                label="Name"
+                name="kaziName"
+                value={form.kaziName}
+                onChange={handleChange}
+              />
+              <Input
+                label="License Number"
+                name="kaziLicense"
+                type="text"
+                value={form.kaziLicense}
+                onChange={handleChange}
+              />
+              <Input
+                label="Address"
+                name="kaziAddress"
+                value={form.kaziAddress}
+                onChange={handleChange}
+              />
+            </div>
+          </section>
+          <section>
+            <h2 className="text-lg font-semibold mb-3">User Information</h2>
+            <div className="grid md:grid-cols-2 gap-4">
+              <Input
+                label="User Email"
+                name="useremail"
+                type="email"
+                value={form.useremail}
+                onChange={handleChange}
+                readOnly
+              />
             </div>
           </section>
 
@@ -430,7 +627,6 @@ export default function KabinNama() {
           >
             Submit
           </button>
-
         </form>
       </div>
     </div>

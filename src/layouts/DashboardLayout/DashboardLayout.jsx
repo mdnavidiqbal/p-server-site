@@ -5,12 +5,11 @@ import Loading from "../../pages/Loading/Loading";
 
 const DashboardLayout = () => {
   const [role, isRoleLoading] = useRole();
-  
 
-  if(isRoleLoading) return <Loading/>
+  if (isRoleLoading) return <Loading />;
   return (
     <div>
-      <div className="drawer lg:drawer-open">
+      <div className="drawer lg:drawer-open bg-gradient-to-r from-[#16222A] to-[#3A6073]">
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
           {/* Navbar */}
@@ -44,7 +43,7 @@ const DashboardLayout = () => {
           <Outlet />
         </div>
 
-        <div className="drawer-side is-drawer-close:overflow-visible pt-1">
+        <div className="drawer-side is-drawer-close:overflow-visible ">
           <label
             htmlFor="my-drawer-4"
             aria-label="close sidebar"
@@ -110,7 +109,37 @@ const DashboardLayout = () => {
               {/* Apply Registration */}
               {role === "user" && (
                 <li>
-                  <button
+                  <Link
+                    to={"user-registration"}
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="My Registration"
+                  >
+                    {/* Registration icon */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      strokeLinejoin="round"
+                      strokeLinecap="round"
+                      strokeWidth="2"
+                      fill="none"
+                      stroke="currentColor"
+                      className="my-1.5 inline-block size-6"
+                    >
+                      <path d="M4 4h16v16H4z"></path>
+                      <path d="M8 10h8"></path>
+                      <path d="M8 14h5"></path>
+                      <path d="M12 6v4"></path>
+                    </svg>
+                    <span className="is-drawer-close:hidden">
+                      My Registration
+                    </span>
+                  </Link>
+                </li>
+              )}
+              {role === "user" && (
+                <li>
+                  <Link
+                    to={"registration-data"}
                     className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                     data-tip="Application Registration"
                   >
@@ -133,12 +162,12 @@ const DashboardLayout = () => {
                     <span className="is-drawer-close:hidden">
                       Apply Registration
                     </span>
-                  </button>
+                  </Link>
                 </li>
               )}
 
               {/* Users */}
-              {role === "admin" && (
+              {role === "user" && (
                 <li>
                   <Link
                     to={"site-users"}
@@ -165,9 +194,10 @@ const DashboardLayout = () => {
               )}
 
               {/* Manage Users */}
-              {role === "admin" && (
+              {role === "user" && (
                 <li>
-                  <button
+                  <Link
+                    to={"manage-users"}
                     className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                     data-tip="Manage Users"
                   >
@@ -186,7 +216,7 @@ const DashboardLayout = () => {
                       <path d="M14 21a5 5 0 0 1 8 0"></path>
                     </svg>
                     <span className="is-drawer-close:hidden">Manage Users</span>
-                  </button>
+                  </Link>
                 </li>
               )}
               {/* List item */}

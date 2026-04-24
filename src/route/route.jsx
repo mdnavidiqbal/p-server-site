@@ -16,6 +16,9 @@ import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
 import SiteUsers from "../pages/DashboardPages/SiteUsers/SiteUsers";
 import UserProfile from "../pages/DashboardPages/UserProfile/UserProfile";
 import Statistics from "../pages/DashboardPages/Statistics/Statistics";
+import MyRegistration from "../pages/DashboardPages/MyRegistration/MyRegistration";
+import ManageUser from "../pages/DashboardPages/Admin/ManageUser";
+import UserRegistration from "../pages/DashboardPages/UserRegistration/UserRegistration";
 
 export const router = createBrowserRouter([
   {
@@ -30,14 +33,14 @@ export const router = createBrowserRouter([
         path: "/home",
         element: <Home />,
       },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/registration",
-        element: <Register />,
-      },
+      // {
+      //   path: "/login",
+      //   element: <Login />,
+      // },
+      // {
+      //   path: "/registration",
+      //   element: <Register />,
+      // },
       {
         path: "/myprofile",
         element: <MyProfile />,
@@ -80,6 +83,8 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  { path: "/login", element: <Login /> },
+  { path: "/registration", element: <Register /> },
   {
     path: "dashboard",
     element: (
@@ -90,7 +95,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element:<Statistics/>
+        element: <Statistics />,
       },
       {
         path: "site-users",
@@ -105,6 +110,18 @@ export const router = createBrowserRouter([
       {
         path: "dashboard-profile",
         Component: UserProfile,
+      },
+      {
+        path: "registration-data",
+        Component: MyRegistration,
+      },
+      {
+        path: "manage-users",
+        Component: ManageUser,
+      },
+      {
+        path: "user-registration",
+        Component: UserRegistration,
       },
     ],
   },

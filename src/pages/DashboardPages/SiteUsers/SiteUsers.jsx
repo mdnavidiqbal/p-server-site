@@ -2,9 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/UseAxiosSecure";
 // import axios from "axios";
 
-
 const SiteUsers = () => {
-  const axiosSecure = useAxiosSecure()
+  const axiosSecure = useAxiosSecure();
   const {
     data: users = [],
     isLoading,
@@ -13,7 +12,7 @@ const SiteUsers = () => {
     queryKey: ["siteusers"],
     queryFn: async () => {
       // const res = await axios.get("http://localhost:3000/Register");
-      const res = await axiosSecure(`/Register`)
+      const res = await axiosSecure(`/Register`);
       return res.data.data;
     },
   });
@@ -25,7 +24,9 @@ const SiteUsers = () => {
       <div className="ml-15 my-10 p-5 w-50 h-20 rounded-2xl bg-green-300">
         <div>
           <h1 className="text-center font-bold text-xl">Total Users</h1>
-          <h1 className="text-center font-bold text-shadow-md">{users.length}</h1>
+          <h1 className="text-center font-bold text-shadow-md">
+            {users.length}
+          </h1>
         </div>
       </div>
     </div>
