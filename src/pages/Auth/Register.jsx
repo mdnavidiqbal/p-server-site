@@ -2,6 +2,7 @@ import React, { use } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useLocation } from "react-router";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const { createUser, setUser, googleLogin } = use(AuthContext);
@@ -36,6 +37,7 @@ const Register = () => {
         // console.log(user);
         setUser(user);
         navigate("/home");
+        toast.success("Sucessfully Login")
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -73,6 +75,7 @@ const Register = () => {
 
           // ✅ THEN navigate AFTER DB save
           navigate(from, { replace: true });
+
         })
         .catch((err) => {
           console.log("DB error:", err);

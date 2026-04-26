@@ -77,7 +77,7 @@ const DashboardLayout = () => {
                 </Link>
               </li>
               {/* Conditional Rendering for user */}
-              {role === "admin" && (
+              {role === "user" && (
                 <li>
                   <Link
                     to="/dashboard/statistics"
@@ -131,12 +131,12 @@ const DashboardLayout = () => {
                       <path d="M12 6v4"></path>
                     </svg>
                     <span className="is-drawer-close:hidden">
-                      My Registration
+                      User Registration
                     </span>
                   </Link>
                 </li>
               )}
-              {role === "user" && (
+              {role === "admin" && (
                 <li>
                   <Link
                     to={"registration-data"}
@@ -194,7 +194,7 @@ const DashboardLayout = () => {
               )}
 
               {/* Manage Users */}
-              {role === "user" && (
+              {role === "admin" && (
                 <li>
                   <Link
                     to={"manage-users"}
@@ -216,6 +216,56 @@ const DashboardLayout = () => {
                       <path d="M14 21a5 5 0 0 1 8 0"></path>
                     </svg>
                     <span className="is-drawer-close:hidden">Manage Users</span>
+                  </Link>
+                </li>
+              )}
+              {role === "admin" && (
+                <li>
+                  <Link
+                    to={"admin-request"}
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="Admin Request"
+                  >
+                    {/* Users icon */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      strokeWidth="2"
+                      fill="none"
+                      stroke="currentColor"
+                      className="my-1.5 inline-block size-6"
+                    >
+                      <circle cx="9" cy="7" r="4"></circle>
+                      <circle cx="17" cy="7" r="3"></circle>
+                      <path d="M2 21a7 7 0 0 1 14 0"></path>
+                      <path d="M14 21a5 5 0 0 1 8 0"></path>
+                    </svg>
+                    <span className="is-drawer-close:hidden">Admin Request</span>
+                  </Link>
+                </li>
+              )}
+              {role === "user" && (
+                <li>
+                  <Link
+                    to={"be-admin"}
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="Become An Admin"
+                  >
+                    {/* Users icon */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      strokeWidth="2"
+                      fill="none"
+                      stroke="currentColor"
+                      className="my-1.5 inline-block size-6"
+                    >
+                      <circle cx="9" cy="7" r="4"></circle>
+                      <circle cx="17" cy="7" r="3"></circle>
+                      <path d="M2 21a7 7 0 0 1 14 0"></path>
+                      <path d="M14 21a5 5 0 0 1 8 0"></path>
+                    </svg>
+                    <span className="is-drawer-close:hidden">Become An Admin</span>
                   </Link>
                 </li>
               )}

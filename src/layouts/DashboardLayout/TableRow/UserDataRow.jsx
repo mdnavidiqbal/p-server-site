@@ -1,18 +1,19 @@
-// import { useState } from 'react'
-// user er sthey , refetch  eita hobey 
-const UserDataRow = ({ user}) => {
-//   let [isOpen, setIsOpen] = useState(false)
-//   const closeModal = () => setIsOpen(false)
+import { useState } from 'react'
+import UpdateUserRoleModal from '../../../components/Modal/UpdateUserRoleModal'
+// UserDataRow te props hisebe thkbe eita { user, refetch } 
+const UserDataRow = ({refetch}) => {
+  let [isOpen, setIsOpen] = useState(false)
+  const closeModal = () => setIsOpen(false)
   return (
     <tr>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <p className='text-gray-900 '>{user?.email}</p>
+        <p className='text-gray-900 '>alibaba@gmail.com</p>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <p className='text-gray-900 '>{user?.role}</p>
+        <p className='text-gray-900 '>user</p>
       </td>
 
-      {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <span
           onClick={() => setIsOpen(true)}
           className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'
@@ -25,12 +26,13 @@ const UserDataRow = ({ user}) => {
         </span>
         
         <UpdateUserRoleModal
-          user={user}
+          // user={user}
           refetch={refetch}
           isOpen={isOpen}
           closeModal={closeModal}
         />
-      </td> */}
+        
+      </td>
     </tr>
   )
 }

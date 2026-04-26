@@ -1,7 +1,7 @@
 import React from "react";
 
 const MyRegistrationDataRow = ({ register }) => {
-  const { photourl, name, email, role, status } = register || {};
+  const { photourl, name, email, role} = register || {};
   // console.log(register)
 
   return (
@@ -30,24 +30,10 @@ const MyRegistrationDataRow = ({ register }) => {
         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
           <p className="text-gray-900">{email}</p>
         </td>
-
-        {/* Phone */}
-        {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <p className='text-gray-900'>{phone}</p>
-      </td> */}
-
         {/* Role */}
         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
           <p className="text-gray-900">{role}</p>
         </td>
-
-        {/* Status */}
-        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-          <p className="text-gray-900">{status}</p>
-        </td>
-
-        {/* Action */}
-        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"></td>
       </tr>
   );
 };

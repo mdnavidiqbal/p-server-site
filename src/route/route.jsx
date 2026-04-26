@@ -19,6 +19,10 @@ import Statistics from "../pages/DashboardPages/Statistics/Statistics";
 import MyRegistration from "../pages/DashboardPages/MyRegistration/MyRegistration";
 import ManageUser from "../pages/DashboardPages/Admin/ManageUser";
 import UserRegistration from "../pages/DashboardPages/UserRegistration/UserRegistration";
+import BeAdmin from "../pages/DashboardPages/BeAdmin/BeAdmin";
+import ManageAdmin from "../pages/DashboardPages/Admin/ManageAdmin";
+
+
 
 export const router = createBrowserRouter([
   {
@@ -120,9 +124,17 @@ export const router = createBrowserRouter([
         Component: ManageUser,
       },
       {
+        path: "admin-request",
+        Component: ManageAdmin,
+      },
+      {
         path: "user-registration",
         Component: UserRegistration,
       },
+      {
+        path:"be-admin",
+        Component:BeAdmin
+      }
     ],
   },
 ]);

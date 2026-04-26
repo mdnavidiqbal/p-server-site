@@ -1,11 +1,14 @@
 import React, { use } from "react";
+
+import { useQuery } from "@tanstack/react-query";
+
+import BeAdminDataRow from "../../../layouts/DashboardLayout/TableRow/BeAdminDataRow";
 import { AuthContext } from "../../../provider/AuthProvider";
 import useAxiosSecure from "../../../hooks/UseAxiosSecure";
-import { useQuery } from "@tanstack/react-query";
 import Loading from "../../Loading/Loading";
-import MyRegistrationDataRow from "../../../layouts/DashboardLayout/TableRow/MyRegistrationDataRow";
 
-const UserRegistration = () => {
+
+const  BeAdmin = () => {
   const { user } = use(AuthContext);
   const axiosSecure = useAxiosSecure();
   const { data: register = [], isLoading } = useQuery({
@@ -51,22 +54,17 @@ const UserRegistration = () => {
                     >
                       Role
                     </th>
-                    {/* <th
-                      scope="col"
-                      className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
-                    >
-                      Status
-                    </th>
+                    
                     <th
                       scope="col"
                       className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
                     >
                       Action
-                    </th> */}
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <MyRegistrationDataRow register={register} />
+                  <BeAdminDataRow register={register} />
                 </tbody>
               </table>
             </div>
@@ -77,4 +75,4 @@ const UserRegistration = () => {
   );
 };
 
-export default UserRegistration;
+export default BeAdmin;

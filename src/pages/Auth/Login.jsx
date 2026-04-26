@@ -154,7 +154,7 @@
 import React, { use } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../provider/AuthProvider";
-
+import { toast, ToastContainer } from "react-toastify";
 const Login = () => {
   const { signIn, googleLogin } = use(AuthContext);
   const navigate = useNavigate();
@@ -183,18 +183,19 @@ const Login = () => {
 
       // 3️⃣ Save token (this is what backend expects)
       localStorage.setItem("accessToken", token);
-
+      toast.success("Sucessfully Login")
       // 4️⃣ Navigate
       navigate(from, { replace: true });
     } catch (error) {
-      alert(error.message);
+      toast.error(error.message)
     }
   };
 
   // =========================
   // GOOGLE LOGIN
   // =========================
-  const handleGoogle = async () => {
+  const handleGoogle = async (e) => {
+    e.preventDefault();
     try {
       const result = await googleLogin();
       const user = result.user;
@@ -207,16 +208,17 @@ const Login = () => {
 
       // 2️⃣ Save token
       localStorage.setItem("accessToken", token);
-
+      toast.success("Sucessfully Login")
       // 3️⃣ Navigate
       navigate(from, { replace: true });
     } catch (error) {
-      alert(error.message);
+      toast.error(error.message)
     }
   };
 
   return (
     <div className="min-h-screen flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-20 px-4 bg-gradient-to-r from-[#1c92d2] to-[#f2fcfe]">
+      <ToastContainer position="top-center" autoClose={2000} />
       {/* Left Text */}
       <div className="text-center lg:text-left max-w-md order-1">
         <h1 className="font-bold text-3xl sm:text-4xl">Login Now !</h1>
