@@ -1,27 +1,27 @@
-// import { useQuery } from '@tanstack/react-query'
-// import useAxiosSecure from '../../../hooks/useAxiosSecure'
-// import { use } from 'react'
+import { useQuery } from '@tanstack/react-query'
+import useAxiosSecure from '../../../hooks/useAxiosSecure'
+import { use } from 'react'
 import { AuthContext } from '../../../provider/AuthProvider'
 import Loading from '../../Loading/Loading'
 import UserDataRow from '../../../layouts/DashboardLayout/TableRow/UserDataRow'
 
 const ManageUser = () => {
-  // const { user } = use(AuthContext)
-  // const axiosSecure = useAxiosSecure()
-  // const {
-  //   data: users = [],
-  //   isLoading,
-  //   refetch,
-  // } = useQuery({
-  //   queryKey: ['users', user?.email],
-  //   queryFn: async () => {
-  //     const result = await axiosSecure(`Register`)
-  //     return result.data.data
-  //   },
-  // })
-  // console.log(users)
+  const { user } = use(AuthContext)
+  const axiosSecure = useAxiosSecure()
+  const {
+    data: users = [],
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ['users', user?.email],
+    queryFn: async () => {
+      const result = await axiosSecure(`Register`)
+      return result.data.data
+    },
+  })
+  console.log(users)
 
-  // if (isLoading) return <Loading/>
+  if (isLoading) return <Loading/>
   return (
     <>
       <div className='container mx-auto px-4 sm:px-8'>
@@ -41,6 +41,12 @@ const ManageUser = () => {
                       scope='col'
                       className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                     >
+                      Name
+                    </th>
+                    <th
+                      scope='col'
+                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                    >
                       Role
                     </th>
                     <th
@@ -52,14 +58,13 @@ const ManageUser = () => {
                   </tr>
                 </thead>
                 <tbody>
-                    {/* {users.map(user => (
+                    {users.map(user => (
                     <UserDataRow
                       refetch={refetch}
                       key={user?._id}
                       user={user}
                     />
-                  ))} */}
-                  <UserDataRow/>
+                  ))}
                 </tbody>
               </table>
             </div>

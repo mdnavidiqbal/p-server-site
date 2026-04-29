@@ -232,6 +232,8 @@
 import React, { useState, useCallback, use, useEffect } from "react";
 import { data, useNavigate } from "react-router";
 import { AuthContext } from "../../provider/AuthProvider";
+import { toast } from "react-toastify";
+import useAxiosSecure from "../../hooks/UseAxiosSecure";
 
 /* ---------------- INPUT COMPONENT ---------------- */
 const Input = React.memo(({ label, name, type = "text", value, onChange }) => {
@@ -317,38 +319,42 @@ export default function KabinNama() {
     }));
   }, []);
 
+const axiosSecure = useAxiosSecure();
+
   /* ---------------- SUBMIT ---------------- */
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    // ✅ আগে validation
-    for (let key in form) {
-      if (!form[key]?.toString().trim()) {
-        alert("Please fill all required fields!");
-        return;
-      }
+  // validation
+  for (let key in form) {
+    if (!form[key]?.toString().trim()) {
+      toast.error("Please fill all required fields!");
+      return;
     }
+  }
 
-    // ✅ তারপর API call
-    fetch("http://localhost:3000/kabin", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        alert("Form submit successfully");
-        navigate("/home")
-      })
-      .catch((error) => {
-        console.log(error);
-        alert("Failed to post data");
-      });
-  };
+  try {
+    const payload = {
+      ...form,
+      status: "pending",
+    };
 
+     await axiosSecure.post("/kabin", payload);
+
+    toast.success("Form submitted successfully, wait for response", {
+      autoClose: 4000,
+    });
+
+    navigate("/home");
+  } catch (err) {
+    console.log("ERROR:", err?.response || err);
+
+    toast.error(
+      err?.response?.data?.message ||
+      "Failed to submit (check backend or token)"
+    );
+  }
+};
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow">

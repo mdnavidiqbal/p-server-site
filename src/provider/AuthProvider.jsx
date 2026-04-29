@@ -57,9 +57,7 @@ import React, { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   getAuth,
-  
   GoogleAuthProvider,
-  
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
@@ -68,7 +66,6 @@ import {
 import app from "../Firebase/Firebase.config";
 
 export const AuthContext = createContext();
-
 
 const auth = getAuth(app);
 
@@ -88,17 +85,19 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  // Login with google 
+  // Login with google
 
-  const googleLogin = async()=>{
-      setLoading(true);
-      return signInWithPopup(auth,googleProvider)
-  }
+  const googleLogin = async () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  };
 
   // Logout User
-  const logOut = () => {
+  const logOut = async () => {
     setLoading(true);
-    return signOut(auth);
+    await signOut(auth);
+    setUser(null); // VERY IMPORTANT
+    setLoading(false);
   };
 
   // Observe Auth State
@@ -122,13 +121,10 @@ const AuthProvider = ({ children }) => {
     signIn,
     googleLogin,
     logOut,
-    
   };
 
   return (
-    <AuthContext.Provider value={authData}>
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={authData}>{children}</AuthContext.Provider>
   );
 };
 

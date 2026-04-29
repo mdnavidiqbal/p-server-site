@@ -141,25 +141,23 @@ import React, { useState } from "react";
 import useAxiosSecure from "../../../hooks/UseAxiosSecure";
 import { toast } from "react-toastify";
 
-
-
 const BeAdminDataRow = ({ register }) => {
   const { photourl, name, email, role } = register || {};
-    const axiosSecure = useAxiosSecure()
+  const axiosSecure = useAxiosSecure();
   const [isOpen, setIsOpen] = useState(false);
-  const handleRequest = async()=>{
-    try{
-        await axiosSecure.post('/become-admin')
-        toast.success("Request sent,wait for admin response",{
-            autoClose:4000,
-        })
-    }catch(err){
-        console.log(err)
-        toast.error(err?.response?.data?.message)
-    }finally{
-        setIsOpen(false)
+  const handleRequest = async () => {
+    try {
+      await axiosSecure.post("/become-admin");
+      toast.success("Request sent,wait for admin response", {
+        autoClose: 4000,
+      });
+    } catch (err) {
+      console.log(err);
+      toast.error(err?.response?.data?.message);
+    } finally {
+      setIsOpen(false);
     }
-  }
+  };
 
   return (
     <>
@@ -232,7 +230,8 @@ const BeAdminDataRow = ({ register }) => {
                 </p>
 
                 <p>
-                  If you want to change your role plz click the accpet button otherwise decline button
+                  If you want to change your role plz click the accpet button
+                  otherwise decline button
                 </p>
               </div>
 

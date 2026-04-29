@@ -1,12 +1,24 @@
-import React from "react";
-import { Link, NavLink, Outlet } from "react-router";
+import React, { use } from "react";
+import { Link, NavLink, Outlet, useNavigate } from "react-router";
 import useRole from "../../hooks/useRole";
 import Loading from "../../pages/Loading/Loading";
+import { AuthContext } from "../../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const DashboardLayout = () => {
   const [role, isRoleLoading] = useRole();
+  const navigate = useNavigate();
 
   if (isRoleLoading) return <Loading />;
+  const { logOut } = use(AuthContext);
+  const handleLogout = async () => {
+    await logOut()
+      .then(() => {
+        toast.success("Logout Successfully");
+        navigate("/home");
+      })
+      .catch((error) => console.log(error));
+  };
   return (
     <div>
       <div className="drawer lg:drawer-open bg-gradient-to-r from-[#16222A] to-[#3A6073]">
@@ -141,7 +153,7 @@ const DashboardLayout = () => {
                   <Link
                     to={"registration-data"}
                     className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                    data-tip="Application Registration"
+                    data-tip="Registered Users"
                   >
                     {/* Registration icon */}
                     <svg
@@ -160,14 +172,14 @@ const DashboardLayout = () => {
                       <path d="M12 6v4"></path>
                     </svg>
                     <span className="is-drawer-close:hidden">
-                      Apply Registration
+                       Registered Users
                     </span>
                   </Link>
                 </li>
               )}
 
               {/* Users */}
-              {role === "user" && (
+              {role === "admin" && (
                 <li>
                   <Link
                     to={"site-users"}
@@ -240,7 +252,9 @@ const DashboardLayout = () => {
                       <path d="M2 21a7 7 0 0 1 14 0"></path>
                       <path d="M14 21a5 5 0 0 1 8 0"></path>
                     </svg>
-                    <span className="is-drawer-close:hidden">Admin Request</span>
+                    <span className="is-drawer-close:hidden">
+                      Admin Request
+                    </span>
                   </Link>
                 </li>
               )}
@@ -265,7 +279,36 @@ const DashboardLayout = () => {
                       <path d="M2 21a7 7 0 0 1 14 0"></path>
                       <path d="M14 21a5 5 0 0 1 8 0"></path>
                     </svg>
-                    <span className="is-drawer-close:hidden">Become An Admin</span>
+                    <span className="is-drawer-close:hidden">
+                      Become An Admin
+                    </span>
+                  </Link>
+                </li>
+              )}
+              {role === "admin" && (
+                <li>
+                  <Link
+                    to={"request-kabin"}
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="Request for Kabin"
+                  >
+                    {/* Users icon */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      strokeWidth="2"
+                      fill="none"
+                      stroke="currentColor"
+                      className="my-1.5 inline-block size-6"
+                    >
+                      <circle cx="9" cy="7" r="4"></circle>
+                      <circle cx="17" cy="7" r="3"></circle>
+                      <path d="M2 21a7 7 0 0 1 14 0"></path>
+                      <path d="M14 21a5 5 0 0 1 8 0"></path>
+                    </svg>
+                    <span className="is-drawer-close:hidden">
+                      Request for Kabin
+                    </span>
                   </Link>
                 </li>
               )}
@@ -297,7 +340,7 @@ const DashboardLayout = () => {
               <hr className="my-20 font-bold text-xl" />
               {/* Profile */}
 
-              {role === "user" && (
+              {(role === "user" || role === "admin") && (
                 <li>
                   <Link
                     to={"dashboard-profile"}
@@ -342,7 +385,12 @@ const DashboardLayout = () => {
                     <path d="M16 17l5-5-5-5"></path>
                     <path d="M21 12H9"></path>
                   </svg>
-                  <span className="is-drawer-close:hidden">Logout</span>
+                  <span
+                    onClick={handleLogout}
+                    className="is-drawer-close:hidden"
+                  >
+                    Logout
+                  </span>
                 </button>
               </li>
             </ul>

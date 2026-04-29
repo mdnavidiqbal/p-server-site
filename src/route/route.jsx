@@ -21,6 +21,7 @@ import ManageUser from "../pages/DashboardPages/Admin/ManageUser";
 import UserRegistration from "../pages/DashboardPages/UserRegistration/UserRegistration";
 import BeAdmin from "../pages/DashboardPages/BeAdmin/BeAdmin";
 import ManageAdmin from "../pages/DashboardPages/Admin/ManageAdmin";
+import ManageKabinReques from "../pages/DashboardPages/Admin/ManageKabinReques";
 
 
 
@@ -134,6 +135,10 @@ export const router = createBrowserRouter([
       {
         path:"be-admin",
         Component:BeAdmin
+      },
+      {
+        path:"request-kabin",
+        Component:ManageKabinReques
       }
     ],
   },

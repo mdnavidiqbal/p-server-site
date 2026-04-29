@@ -154,7 +154,7 @@
 import React, { use } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../provider/AuthProvider";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 const Login = () => {
   const { signIn, googleLogin } = use(AuthContext);
   const navigate = useNavigate();
@@ -218,7 +218,6 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-20 px-4 bg-gradient-to-r from-[#1c92d2] to-[#f2fcfe]">
-      <ToastContainer position="top-center" autoClose={2000} />
       {/* Left Text */}
       <div className="text-center lg:text-left max-w-md order-1">
         <h1 className="font-bold text-3xl sm:text-4xl">Login Now !</h1>

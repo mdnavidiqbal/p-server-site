@@ -152,6 +152,7 @@ import { IoHome } from "react-icons/io5";
 import { GrServices } from "react-icons/gr";
 import { MdContactMail } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -176,10 +177,10 @@ const Navbar = () => {
     };
   }, []);
 
-  const handleLogout = () => {
-    logOut()
+  const handleLogout = async () => {
+    await logOut()
       .then(() => {
-        alert("Logout Successfully");
+        toast.success("Logout Successfully");
         closeMenu();
         navigate("/");
       })
