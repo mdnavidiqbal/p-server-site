@@ -28,13 +28,15 @@ const ImageCard = ({ src, alt }) => {
 const Gallery = () => {
   return (
     // flex and items-center diye screen er center e ana hoyeche
-    <div>
-      <div className="flex items-center justify-center  min-h-screen p-4">
+    <div className='max-w-[1240px] mx-auto'>
+      <div className="flex items-center justify-center p-4">
       {/* max-w-lg or max-w-md diye image size choto rakha hoyeche */}
-      <div className="w-full max-w-7xl mx-auto">
-        
+      <div className="w-full max-w-6xl mx-auto">
+        <div className=''>
+          <h1 className='text-4xl font-bold text-center my-10'>Our Mentors</h1>
+        </div>
         {/* gap-[2px] diye image er side gap control kora hoyeche */}
-        <div className="lg:columns-3 md:columns-3 sm:columns-2 gap-3">
+        <div className="lg:columns-3 md:columns-3 sm:columns-2  gap-3">
           {images.map((image) => (
             <ImageCard key={image.id} src={image.src} alt={image.alt} />
           ))}
