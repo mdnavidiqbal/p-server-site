@@ -6,12 +6,33 @@ import kazi from "../assets/Kazi Booking System.jpg";
 import service from "../assets/customer-service-vs-customer-support.png";
 import payment from "../assets/Secure Payment System.jpeg";
 import BorderGlow from "./BorderGlow";
+import Gallery from "./Gallery";
+import TextType from "./TextType";
 
 const Hero = () => {
   return (
     <div className="pt-6 pb-6 px-4">
-      <h1 className="text-center font-bold text-2xl sm:text-3xl lg:text-4xl pt-5 pb-5">
+      {/* <h1 className="text-center font-bold text-2xl sm:text-3xl lg:text-4xl pt-5 pb-5">
         Our Services
+      </h1> */}
+      <h1 className="text-center">
+        <TextType
+          className="font-bold text-black text-3xl sm:text-4xl lg:text-[50px] lg:text-4xl pt-5 pb-5"
+          text={["Our Services"]}
+          typingSpeed={75}
+          pauseDuration={1500}
+          showCursor
+          cursorCharacter="_"
+          texts={[
+            "Welcome to React Bits! Good to see you!",
+            "Build some amazing experiences!",
+          ]}
+          deletingSpeed={50}
+          variableSpeedEnabled={false}
+          variableSpeedMin={60}
+          variableSpeedMax={120}
+          cursorBlinkDuration={0.5}
+        />
       </h1>
 
       <div className="max-w-6xl mx-auto rounded-lg bg-gradient-to-r from-[#23074d] to-[#ffedbc] p-4 sm:p-6">

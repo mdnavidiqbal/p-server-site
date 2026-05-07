@@ -22,6 +22,7 @@ import UserRegistration from "../pages/DashboardPages/UserRegistration/UserRegis
 import BeAdmin from "../pages/DashboardPages/BeAdmin/BeAdmin";
 import ManageAdmin from "../pages/DashboardPages/Admin/ManageAdmin";
 import ManageKabinReques from "../pages/DashboardPages/Admin/ManageKabinReques";
+import MyKabinStatus from "../pages/DashboardPages/MyKabinStatus/MyKabinStatus";
 
 
 
@@ -139,6 +140,10 @@ export const router = createBrowserRouter([
       {
         path:"request-kabin",
         Component:ManageKabinReques
+      },
+      {
+        path:'kabin-status',
+        Component:MyKabinStatus
       }
     ],
   },

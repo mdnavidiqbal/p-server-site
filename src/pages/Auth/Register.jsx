@@ -37,7 +37,7 @@ const Register = () => {
         // console.log(user);
         setUser(user);
         navigate("/home");
-        toast.success("Sucessfully Login")
+        toast.success("Registration Complete Sucessfully")
       })
       .catch((error) => {
         const errorCode = error.code;

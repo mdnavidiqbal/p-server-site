@@ -319,42 +319,42 @@ export default function KabinNama() {
     }));
   }, []);
 
-const axiosSecure = useAxiosSecure();
+  const axiosSecure = useAxiosSecure();
 
   /* ---------------- SUBMIT ---------------- */
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  // validation
-  for (let key in form) {
-    if (!form[key]?.toString().trim()) {
-      toast.error("Please fill all required fields!");
-      return;
+    // validation
+    for (let key in form) {
+      if (!form[key]?.toString().trim()) {
+        toast.error("Please fill all required fields!");
+        return;
+      }
     }
-  }
 
-  try {
-    const payload = {
-      ...form,
-      status: "pending",
-    };
+    try {
+      const payload = {
+        ...form,
+        status: "pending",
+      };
 
-     await axiosSecure.post("/kabin", payload);
+      await axiosSecure.post("/kabin", payload);
 
-    toast.success("Form submitted successfully, wait for response", {
-      autoClose: 4000,
-    });
+      toast.success("Form submitted successfully, wait for response", {
+        autoClose: 4000,
+      });
 
-    navigate("/home");
-  } catch (err) {
-    console.log("ERROR:", err?.response || err);
+      navigate("/home");
+    } catch (err) {
+      console.log("ERROR:", err?.response || err);
 
-    toast.error(
-      err?.response?.data?.message ||
-      "Failed to submit (check backend or token)"
-    );
-  }
-};
+      toast.error(
+        err?.response?.data?.message ||
+          "Failed to submit (check backend or token)",
+      );
+    }
+  };
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow">

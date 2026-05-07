@@ -36,7 +36,6 @@ class ChoicenUs extends Component {
   render() {
     return (
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 py-12 my-10 bg-gradient-to-r from-[#003d4d] to-[#00c996] rounded-lg">
-        
         <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20">
           
           {/* Image Section */}

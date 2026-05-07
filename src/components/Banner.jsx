@@ -3,11 +3,11 @@ import { Link } from "react-router";
 import TextType from "./TextType";
 
 const images = [
-  "https://images.unsplash.com/photo-1529636798458-92182e662485?q=80&w=1600",
-  "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600",
-  "https://images.unsplash.com/photo-1591604466107-ec97de577aff?q=80&w=1600",
-  "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1600",
-  "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&w=1600",
+  "https://i.ibb.co.com/My0RDsVD/pexels-akshay-patil-2160317876-36634992.jpg",
+  "https://i.ibb.co.com/DH7dMGbP/pexels-hassanshoots1-11881283.jpg",
+  "https://i.ibb.co.com/RGKn4mvv/hafida-abousalih-Iko-P607-TQa-A-unsplash.jpg",
+  "https://i.ibb.co.com/5gDRNv89/love-arya-SUw-Po4-Er-QCc-unsplash.jpg",
+  "https://i.ibb.co.com/7JPXLkJS/pexels-tanvir-haque-1933619946-29204732.jpg",
 ];
 
 const Banner = () => {
@@ -55,7 +55,8 @@ const Banner = () => {
             {/* <h1 className="font-bold text-white text-3xl sm:text-4xl lg:text-[50px]">
               Join NO.1 Muslim Nikha <br /> Registartion Site 
             </h1> */}
-            <TextType className="font-bold text-white text-3xl sm:text-4xl lg:text-[50px]"
+            <TextType
+              className="font-bold text-white text-3xl sm:text-4xl lg:text-[50px]"
               text={[
                 "Join NO.1 Muslim Nikha",
                 "Registartion Site",
@@ -100,7 +101,7 @@ const Banner = () => {
               </Link>
             </div>
           </div>
-        </div> 
+        </div>
       </div>
 
       {/* Dots Indicator */}

@@ -6,21 +6,31 @@ import { AuthContext } from "../../../provider/AuthProvider";
 import KabinRequestDataRow from "../../../layouts/DashboardLayout/TableRow/KabinRequestDataRow";
 import Loading from "../../Loading/Loading";
 
-
 const ManageKabinReques = () => {
   const axiosSecure = useAxiosSecure();
-  const {user} = use(AuthContext)
+  const { user } = use(AuthContext);
+  // const {
+  //   data: kabin = [],
+  //   isLoading,
+  //   refetch
+  // } = useQuery({
+  //   queryKey: ["kabin-reques", user?.email],
+  //   queryFn: async () => {
+  //     const result = await axiosSecure.get(`/kabin`);
+  //     return result.data;
+  //   },
+  // });
   const {
-    data: kabin = [],
-    isLoading,
-    refetch
-  } = useQuery({
-    queryKey: ["kabin-reques", user?.email],
-    queryFn: async () => {
-      const result = await axiosSecure.get(`/kabin`);
-      return result.data;
-    },
-  });
+  data: kabin = [],
+  isLoading,
+  refetch
+} = useQuery({
+  queryKey: ["kabin-reques", user?.email],
+  queryFn: async () => {
+    const result = await axiosSecure.get(`/kabin?status=pending`); // 🔥 এখানে change
+    return result.data;
+  },
+});
   console.log(kabin);
 
   if (isLoading) return <Loading />;
@@ -53,10 +63,13 @@ const ManageKabinReques = () => {
                 </tr>
               </thead>
               <tbody>
-               
-                {
-                    kabin.map(req=> <KabinRequestDataRow key={req._id} req={req} refetch={refetch} />)
-                }
+                {kabin.map((req) => (
+                  <KabinRequestDataRow
+                    key={req._id}
+                    req={req}
+                    refetch={refetch}
+                  />
+                ))}
               </tbody>
             </table>
           </div>

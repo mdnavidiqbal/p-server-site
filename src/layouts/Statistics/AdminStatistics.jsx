@@ -103,7 +103,7 @@ const AdminStatistics = () => {
         <div className='bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition duration-300'>
           <div className='flex items-center justify-between'>
             <div>
-              <p className='text-sm text-gray-500'>Total Revenue</p>
+              <p className='text-sm text-gray-500'>Total Users</p>
               <h2 className='text-2xl font-bold text-gray-800 mt-1'>$120</h2>
             </div>
             <div className='h-12 w-12 flex items-center justify-center rounded-xl bg-orange-100 text-orange-600'>
@@ -116,7 +116,7 @@ const AdminStatistics = () => {
         <div className='bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition duration-300'>
           <div className='flex items-center justify-between'>
             <div>
-              <p className='text-sm text-gray-500'>Total Orders</p>
+              <p className='text-sm text-gray-500'>Total Register for Kabin</p>
               <h2 className='text-2xl font-bold text-gray-800 mt-1'>120</h2>
             </div>
             <div className='h-12 w-12 flex items-center justify-center rounded-xl bg-blue-100 text-blue-600'>
@@ -129,7 +129,7 @@ const AdminStatistics = () => {
         <div className='bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition duration-300'>
           <div className='flex items-center justify-between'>
             <div>
-              <p className='text-sm text-gray-500'>Total Plants</p>
+              <p className='text-sm text-gray-500'></p>
               <h2 className='text-2xl font-bold text-gray-800 mt-1'>120</h2>
             </div>
             <div className='h-12 w-12 flex items-center justify-center rounded-xl bg-pink-100 text-pink-600'>

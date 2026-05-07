@@ -43,22 +43,38 @@ import useAxiosSecure from "../../../hooks/UseAxiosSecure";
 
 const KabinRequestDataRow = ({ req, refetch }) => {
   const axiosSecure = useAxiosSecure();
+  // const handleRoleUpdate = async () => {
+  //   try {
+  //     axiosSecure.patch("/update-kabin", {
+  //       email: req.email,
+  //       status: "approved", // or "rejected"
+  //     });
+  //     toast.success("Role Updated", {
+  //       duration: 4000,
+  //     });
+  //     refetch();
+  //   } catch (err) {
+  //     console.log(err);
+  //     toast.error(err?.response?.data?.message);
+  //   }
+  // };
   const handleRoleUpdate = async () => {
     try {
-      axiosSecure.patch("/update-kabin", {
+      await axiosSecure.patch("/update-kabin", {
         email: req.email,
         status: "approved", // or "rejected"
       });
-      toast.success("Role Updated", {
-        duration: 4000,
+
+      toast.success("Status Updated", {
+        duration: 1000,
       });
-      refetch();
+
+      refetch(); // এখন নিশ্চিতভাবে updated data আনবে
     } catch (err) {
       console.log(err);
       toast.error(err?.response?.data?.message);
     }
   };
-
   console.log(req);
   return (
     <tr>

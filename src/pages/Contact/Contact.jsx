@@ -11,13 +11,13 @@ const Contact = () => {
           </h1>
 
           {/* Responsive Image Container */}
-          <div className="absolute -top-4 -right-4 sm:-top-5 sm:-right-8 md:-right-12 lg:-right-16 w-[60px] h-[60px] sm:w-[80px] sm:h-[80px] md:w-[100px] md:h-[100px]">
+          {/* <div className="absolute -top-4 -right-4 sm:-top-5 sm:-right-8 md:-right-12 lg:-right-16 w-[60px] h-[60px] sm:w-[80px] sm:h-[80px] md:w-[100px] md:h-[100px]">
             <img
               src="https://i.ibb.co.com/2fFsv8V/love.png"
               alt="Decorative love icon"
               className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain absolute top-0 left-0"
             />
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -157,11 +157,6 @@ const Contact = () => {
                 Vivamus in nisl metus? Phasellus.
               </div>
             </div>
-            {/* <img
-              src="/src/assets/customer_care.png"
-              alt=""
-              className="p-6 rounded-4xl h-50 md:h-60 "
-            /> */}
           </div>
           <form noValidate="" className="space-y-6">
             <div>
@@ -173,7 +168,6 @@ const Contact = () => {
                 type="text"
                 placeholder="Enter Your Name"
                 className="w-full p-3 rounded dark:bg-gray-100"
-              
               />
             </div>
             <div>
