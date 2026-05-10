@@ -23,6 +23,8 @@ import BeAdmin from "../pages/DashboardPages/BeAdmin/BeAdmin";
 import ManageAdmin from "../pages/DashboardPages/Admin/ManageAdmin";
 import ManageKabinReques from "../pages/DashboardPages/Admin/ManageKabinReques";
 import MyKabinStatus from "../pages/DashboardPages/MyKabinStatus/MyKabinStatus";
+import NotFound from "../pages/Error/NotFound";
+import Banner from "../components/Banner";
 
 
 
@@ -87,6 +89,14 @@ export const router = createBrowserRouter([
         path: "*",
         element: <Home />,
       },
+      {
+        path:"banner",
+        element:<Banner/>
+      },
+      {
+        path:'not-found',
+        element:<NotFound></NotFound>
+      }
     ],
   },
   { path: "/login", element: <Login /> },
@@ -106,12 +116,6 @@ export const router = createBrowserRouter([
       {
         path: "site-users",
         Component: SiteUsers,
-        // loader: async()=>{
-        //     const res = await fetch("http://localhost:3000/Register");
-        //     const data = await res.json();
-        //     return data.data;
-
-        // }
       },
       {
         path: "dashboard-profile",

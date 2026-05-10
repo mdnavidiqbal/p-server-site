@@ -12,12 +12,20 @@ const DashboardLayout = () => {
   if (isRoleLoading) return <Loading />;
   const { logOut } = use(AuthContext);
   const handleLogout = async () => {
-    await logOut()
-      .then(() => {
-        toast.success("Logout Successfully");
-        navigate("/home");
-      })
-      .catch((error) => console.log(error));
+    try {
+      await logOut();
+
+      toast.success("Logout Successfully");
+
+      setTimeout(() => {
+        navigate("/", { replace: true });
+      }, 50);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleSettings = () => {
+    return navigate("/not-found");
   };
   return (
     <div>
@@ -263,6 +271,7 @@ const DashboardLayout = () => {
               {(role === "user" || role === "admin") && (
                 <li>
                   <button
+                    onClick={handleSettings}
                     className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                     data-tip="Settings"
                   >
@@ -300,6 +309,7 @@ const DashboardLayout = () => {
               {/* Logout */}
               <li>
                 <button
+                  onClick={handleLogout}
                   className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                   data-tip="Logout"
                 >
@@ -309,12 +319,7 @@ const DashboardLayout = () => {
                     alt="user icon"
                     className="my-1.5 inline-block size-7"
                   />
-                  <span
-                    onClick={handleLogout}
-                    className="is-drawer-close:hidden"
-                  >
-                    Logout
-                  </span>
+                  <span className="is-drawer-close:hidden">Logout</span>
                 </button>
               </li>
             </ul>

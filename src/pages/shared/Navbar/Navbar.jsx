@@ -212,6 +212,9 @@ import React, { use, useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { toast } from "react-toastify";
+import useAxiosSecure from "../../../hooks/UseAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
+import Loading from "../../Loading/Loading";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -250,6 +253,20 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  // To get user information and use it to the navbar 
+  const axiosSecure = useAxiosSecure();
+  const { data: register = [], isLoading } = useQuery({
+    queryKey: ["register", user?.email],
+    enabled: !!user?.email,
+    queryFn: async () => {
+      const result = await axiosSecure.get(`Register/${user.email}`);
+      return result.data.data;
+    },
+  });
+
+  if (isLoading) return <Loading />;
+  console.log(register);
 
   const handleLogout = async () => {
     await logOut()
@@ -339,7 +356,7 @@ const Navbar = () => {
               <img
                 onClick={toggleMenu}
                 className="w-11 h-11 rounded-full cursor-pointer border-2 border-blue-400"
-                src={user.photoURL || "https://i.ibb.co/3C5xJ7R/user.png"}
+                src={register?.photourl || "https://i.ibb.co/3C5xJ7R/user.png"}
                 alt="profile"
               />
 
