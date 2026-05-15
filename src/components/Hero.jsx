@@ -12,9 +12,6 @@ import TextType from "./TextType";
 const Hero = () => {
   return (
     <div className="pt-6 pb-6 px-4 w-full h-full overflow-hidden">
-      {/* <h1 className="text-center font-bold text-2xl sm:text-3xl lg:text-4xl pt-5 pb-5">
-        Our Services
-      </h1> */}
       <h1 className="text-center">
         <TextType
           className="font-bold text-black text-3xl sm:text-4xl lg:text-[50px] lg:text-4xl pt-5 pb-5"

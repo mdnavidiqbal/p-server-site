@@ -15,7 +15,7 @@ const useRole = () => {
   } = useQuery({
     enabled: !loading && !!user?.email,
     queryKey: ["role", user?.email],
-    retry: false, // 🔥 important (no infinite retry)
+    retry: false, // important (no infinite retry)
     queryFn: async () => {
       const { data } = await axiosSecure(
         `/Register/role/${user.email}`

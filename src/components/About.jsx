@@ -5,19 +5,19 @@ const teamMembers = [
   {
     name: "Iris Kowalski",
     role: "HEAD OF PRODUCT DESIGN",
-    image: "https://i.ibb.co.com/CKP6knyF/ab4.jpg", // Replace with actual image
+    image: "https://i.ibb.co.com/CKP6knyF/ab4.jpg", 
     linkedin: "#",
   },
   {
     name: "Marcus Tenga",
     role: "HEAD OF ENGINEERING",
-    image: "https://i.ibb.co.com/yFQC63Ps/ab3.jpg", // Replace with actual image
+    image: "https://i.ibb.co.com/yFQC63Ps/ab3.jpg", 
     linkedin: "#",
   },
   {
     name: "Priya Natarajan",
     role: "HEAD OF BRAND",
-    image: "https://i.ibb.co.com/9HHPHr5P/ab2.jpg", // Replace with actual image
+    image: "https://i.ibb.co.com/9HHPHr5P/ab2.jpg", 
     linkedin: "#",
   },
   {

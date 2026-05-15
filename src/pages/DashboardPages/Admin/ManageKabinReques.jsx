@@ -9,17 +9,6 @@ import Loading from "../../Loading/Loading";
 const ManageKabinReques = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = use(AuthContext);
-  // const {
-  //   data: kabin = [],
-  //   isLoading,
-  //   refetch
-  // } = useQuery({
-  //   queryKey: ["kabin-reques", user?.email],
-  //   queryFn: async () => {
-  //     const result = await axiosSecure.get(`/kabin`);
-  //     return result.data;
-  //   },
-  // });
   const {
   data: kabin = [],
   isLoading,

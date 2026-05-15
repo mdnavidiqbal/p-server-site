@@ -48,11 +48,6 @@ const MyKabinStatus = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {/* {kabin.map((details) => {
-                    return (
-                      <KabinStatusDataRow key={details._id} details={details} />
-                    );
-                  })} */}
                   {kabin.length === 0 ? (
                     <tr>
                       <td

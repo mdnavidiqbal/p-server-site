@@ -267,18 +267,6 @@ const CreateBiodata = () => {
               </div>
             </div>
           </div>
-
-          {/* Photo */}
-          {/* <div>
-            <label className="block font-medium mb-1">Upload Photo</label>
-            <input
-              type="file"
-              name="photo"
-              onChange={handleChange}
-              className="w-full"
-            />
-          </div> */}
-
           {/* Submit */}
           <div className="text-center mt-6">
             <button

@@ -51,17 +51,6 @@ const Intro = () => {
       </section>
       <section className="bg-gradient-to-r from-[#480048] to-[#c04848]">
         <div className=" text-white min-h-screen py-20 px-6 relative overflow-hidden font-sans">
-          {/* Background Grid Pattern */}
-
-          {/* Floating Neon Object */}
-          {/* <div className="absolute top-20 right-10 w-16 h-16 bg-purple-600 rounded-lg blur-xl opacity-30 animate-pulse"></div> */}
-
-          {/* Section Header */}
-          {/* <div className="text-center mb-16 relative z-10">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-              Our Vision<span className="text-purple-500">_</span>
-            </h2>
-          </div> */}
 
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -97,7 +86,7 @@ const Intro = () => {
                     <video
                       className="w-full h-full object-cover opacity-90 transition-opacity duration-500 group-hover:opacity-100"
                       controls
-                      poster="image_6aab2a.jpg" // ভিডিওর ওপর ইমেজটি থাম্বনেইল হিসেবে থাকবে
+                      poster="image_6aab2a.jpg" 
                     >
                       <source
                         src="/src/assets/banner-video.mp4"
@@ -106,7 +95,7 @@ const Intro = () => {
                       Your browser does not support the video tag.
                     </video>
 
-                    {/* প্লে বাটনটি ভিডিওর ওপরে সুন্দর দেখানোর জন্য (Optional overlay) */}
+                    
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:hidden transition-all">
                       <div className="bg-pink-500/80 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
                         <svg
