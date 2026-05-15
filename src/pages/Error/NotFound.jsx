@@ -22,14 +22,14 @@ const NotFound = () => {
       </h1>
 
       {/* Subtitle */}
-      <p className="text-gray-500 mt-3 text-center max-w-md">
+      <p className="text-gray-500 mt-3 text-center max-w-md pb-3">
         The page you’re looking for is currently under construction
       </p>
 
       {/* Button */}
       <button
         onClick={() => navigate("/")}
-        className="mt-6 px-6 py-3 rounded-full bg-blue-600 text-white font-medium shadow-md hover:bg-blue-700 transition duration-300"
+        className="btn btn-primary bg-purple-500 hover:bg-purple-600"
       >
         Go Back Home
       </button>

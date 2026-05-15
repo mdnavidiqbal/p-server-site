@@ -66,7 +66,7 @@ const Intro = () => {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.1,  }}
+            transition={{ duration: 0.1 }}
             className="group relative p-6 sm:p-8 transition-all duration-300"
           >
             <div className="text-center mb-16 relative z-10">
@@ -143,7 +143,10 @@ const Intro = () => {
               </p>
 
               <div className="flex flex-wrap gap-4 pt-4">
-                <Link to={'/home'} className="bg-[#6322ef] hover:bg-[#501bd1] text-white px-8 py-3 rounded-lg font-medium transition-all transform hover:scale-105 shadow-lg shadow-purple-500/20">
+                <Link
+                  to={"/home"}
+                  className="bg-[#6322ef] hover:bg-[#501bd1] text-white px-8 py-3 rounded-lg font-medium transition-all transform hover:scale-105 shadow-lg shadow-purple-500/20"
+                >
                   Explore
                 </Link>
                 <button className="border border-purple-500/50 hover:bg-purple-500/10 text-white px-8 py-3 rounded-lg font-medium transition-all">
@@ -204,7 +207,115 @@ const Intro = () => {
         </div>
       </section>
 
-      <section></section>
+      <section className="relative py-24 bg-gradient-to-r from-[#480048] to-[#c04848] overflow-hidden">
+        {/* Glassmorphism Background Blurs */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-900/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-900/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            {/* 1. Text Content Side */}
+            <div className="lg:w-1/2 space-y-8">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span className="text-emerald-400 text-xs font-bold uppercase tracking-widest">
+                  Govt. Certified Service
+                </span>
+              </div>
+
+              <h2 className="text-5xl lg:text-7xl font-bold text-white leading-tight tracking-tighter">
+                Sacred Union in a <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-200 italic font-serif">
+                  Digital Age.
+                </span>
+              </h2>
+
+              <p className="text-zinc-400 text-lg leading-relaxed max-w-lg">
+                Amra projukti ebong Shariah-r somonnyoy-e apnar Nikah
+                registration-ke korechi shohoj ebong nirapod. Ekhon desh ba
+                bidesh, jekono pranto theke somponno korun apnar jiboner
+                shobcheye guruttopurno chukti.
+              </p>
+
+              <div className="flex flex-wrap gap-5">
+                <Link to="/kabinnama" className="px-10 py-4 bg-emerald-500 text-black font-black rounded-2xl hover:bg-emerald-400 transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:scale-105 active:scale-95">
+                  Register Now
+                </Link>
+                <Link to="/underconstruction" className="px-10 py-4 bg-transparent text-white font-bold rounded-2xl border border-zinc-800 hover:bg-zinc-900 transition-all">
+                  See Process
+                </Link>
+              </div>
+
+              {/* Feature Highlights */}
+              <div className="grid grid-cols-2 gap-8 pt-10 border-t border-zinc-800/50">
+                <div className="flex items-start gap-3">
+                  <div className="p-2 bg-emerald-500/10 rounded-lg text-emerald-500">
+                    ✓
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold">Legal & Valid</p>
+                    <p className="text-zinc-500 text-xs">
+                      Full legal documentation support
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="p-2 bg-blue-500/10 rounded-lg text-blue-400">
+                    ✓
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold">Global Access</p>
+                    <p className="text-zinc-500 text-xs">
+                      For Expats & Local Citizens
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 2. Interactive Visual Side */}
+            <div className="lg:w-1/2 relative">
+              <div className="relative group">
+                {/* Main Image Container */}
+                <div className="relative rounded-[3rem] p-3 border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden shadow-2xl">
+                  <img
+                    src="https://i.ibb.co.com/sdJM1s3V/couple.jpg"
+                    className="w-full h-[550px] object-cover rounded-[2.5rem] brightness-75 group-hover:brightness-90 transition-all duration-700"
+                    alt="Nikah Registration"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+                </div>
+
+                {/* Floating Card: Trust Factor */}
+                <div className="absolute -bottom-6 -left-6 bg-zinc-900 border border-zinc-800 p-6 rounded-[2rem] shadow-2xl animate-bounce-slow">
+                  <div className="flex items-center gap-4">
+                    <div className="h-12 w-12 bg-emerald-500 rounded-full flex items-center justify-center text-black font-bold">
+                      24/7
+                    </div>
+                    <div>
+                      <p className="text-white font-bold">Kazi Support</p>
+                      <p className="text-zinc-500 text-xs">Active Assistance</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating Card: Verification */}
+                <div className="absolute top-12 -right-6 bg-white/10 backdrop-blur-xl border border-white/20 p-5 rounded-3xl shadow-2xl">
+                  <div className="flex items-center gap-3">
+                    <div className="h-3 w-3 bg-blue-400 rounded-full animate-pulse" />
+                    <p className="text-white font-medium text-sm">
+                      Verified by Ministry
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ❤️ CTA */}
       <section className="py-20 bg-gradient-to-r from-[#480048] to-[#c04848] text-white text-center px-6">

@@ -1,13 +1,15 @@
+
 import React from "react";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
     <footer className="footer footer-horizontal footer-center bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white rounded p-10">
       <nav className="grid grid-flow-col gap-4">
-        <a className="link link-hover text-bold text-white">About us</a>
-        <a className="link link-hover text-bold text-white">Contact</a>
-        <a className="link link-hover text-bold text-white">Jobs</a>
-        <a className="link link-hover text-bold text-white">Press kit</a>
+        <Link  className="link link-hover text-bold text-white">About us</Link>
+        <Link to={'/contact'} className="link link-hover text-bold text-white">Contact</Link>
+        <Link className="link link-hover text-bold text-white">Jobs</Link>
+        <Link className="link link-hover text-bold text-white">Press kit</Link>
       </nav>
       <nav>
         <div className="grid grid-flow-col gap-4">
@@ -49,8 +51,8 @@ const Footer = () => {
       </nav>
       <aside>
         <p className="text-white">
-          Copyright © {new Date().getFullYear()} - All right reserved by ACME
-          Industries Ltd
+          Copyright © {new Date().getFullYear()} - All right reserved by NIKHA
+          DOT COM
         </p>
       </aside>
     </footer>

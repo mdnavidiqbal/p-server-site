@@ -1,320 +1,161 @@
-// import React from "react";
-
-// const Contact = () => {
-//   return (
-//     <div className="w-full overflow-x-hidden bg-gradient-to-r from-[#DBE6F6] to-[#86A8E7]">
-//       {/* Header Section */}
-//       <div className="flex items-center justify-center min-h-[150px] sm:min-h-[200px] px-4 mt-6 sm:mt-8 md:mt-10">
-//         <div className="relative text-center max-w-[90%] sm:max-w-[80%] md:max-w-full">
-//           <h1 className="font-bold text-green-700 text-xl sm:text-2xl md:text-3xl lg:text-4xl pt-6 sm:pt-8 md:pt-10 px-4">
-//             We are here to assist you.
-//           </h1>
-
-//           {/* Responsive Image Container */}
-//           {/* <div className="absolute -top-4 -right-4 sm:-top-5 sm:-right-8 md:-right-12 lg:-right-16 w-[60px] h-[60px] sm:w-[80px] sm:h-[80px] md:w-[100px] md:h-[100px]">
-//             <img
-//               src="https://i.ibb.co.com/2fFsv8V/love.png"
-//               alt="Decorative love icon"
-//               className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain absolute top-0 left-0"
-//             />
-//           </div> */}
-//         </div>
-//       </div>
-
-//       {/* Cards Grid Section */}
-//       <div className="flex items-center justify-center px-3 sm:px-4 md:px-6 py-6 sm:py-8 md:py-10">
-//         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 sm:gap-5 md:gap-6 max-w-7xl mx-auto">
-//           {/* Dhaka Branch */}
-//           <div className="bg-green-200 w-full max-w-sm mx-auto p-4 sm:p-5 md:p-6 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-//             <svg
-//               className="w-6 h-6 sm:w-7 sm:h-7 mb-2 sm:mb-3 text-gray-600"
-//               aria-hidden="true"
-//               xmlns="http://www.w3.org/2000/svg"
-//               fill="none"
-//               viewBox="0 0 24 24"
-//             >
-//               <path
-//                 stroke="currentColor"
-//                 strokeLinecap="round"
-//                 strokeLinejoin="round"
-//                 strokeWidth="2"
-//                 d="M10 21v-9m3-4H7.5a2.5 2.5 0 1 1 0-5c1.5 0 2.875 1.25 3.875 2.5M14 21v-9m-9 0h14v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8ZM4 8h16a1 1 0 0 1 1 1v3H3V9a1 1 0 0 1 1-1Zm12.155-5c-3 0-5.5 5-5.5 5h5.5a2.5 2.5 0 0 0 0-5Z"
-//               />
-//             </svg>
-//             <h5 className="mb-2 text-xl sm:text-2xl font-semibold tracking-tight text-gray-900">
-//               Dhaka - Branch Office
-//               <hr className="mt-1 sm:mt-2" />
-//             </h5>
-//             <p className="mb-3 text-sm sm:text-base text-gray-600 leading-relaxed">
-//               Way To Nikah, Third Floor <br />
-//               Noble Building, Above Gramin Bank, Bashundhara <br />
-//               Madani Road, Bashundhara, Dhaka, Bangladesh <br />
-//               Call: 7025115588 <br className="hidden sm:block" />
-//               Mob: 01702541166
-//             </p>
-//           </div>
-
-//           {/* Mymensingh Branch */}
-//           <div className="bg-green-200 w-full max-w-sm mx-auto p-4 sm:p-5 md:p-6 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-//             <svg
-//               className="w-6 h-6 sm:w-7 sm:h-7 mb-2 sm:mb-3 text-gray-600"
-//               aria-hidden="true"
-//               xmlns="http://www.w3.org/2000/svg"
-//               fill="none"
-//               viewBox="0 0 24 24"
-//             >
-//               <path
-//                 stroke="currentColor"
-//                 strokeLinecap="round"
-//                 strokeLinejoin="round"
-//                 strokeWidth="2"
-//                 d="M10 21v-9m3-4H7.5a2.5 2.5 0 1 1 0-5c1.5 0 2.875 1.25 3.875 2.5M14 21v-9m-9 0h14v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8ZM4 8h16a1 1 0 0 1 1 1v3H3V9a1 1 0 0 1 1-1Zm12.155-5c-3 0-5.5 5-5.5 5h5.5a2.5 2.5 0 0 0 0-5Z"
-//               />
-//             </svg>
-//             <h5 className="mb-2 text-xl sm:text-2xl font-semibold tracking-tight text-gray-900">
-//               Mymensingh - Branch Office
-//               <hr className="mt-1 sm:mt-2" />
-//             </h5>
-//             <p className="mb-3 text-sm sm:text-base text-gray-600 leading-relaxed">
-//               Way To Nikah, Third Floor <br />
-//               Mufizuddin Building, Above Shawpna, Noumuhol <br />
-//               A/B Guho Road, Mymensingh Sadar, Mymensingh, Bangladesh <br />
-//               Call: 7025115588 <br className="hidden sm:block" />
-//               Mob: 01702544166
-//             </p>
-//           </div>
-
-//           {/* Chattagram Branch */}
-//           <div className="bg-green-200 w-full max-w-sm mx-auto p-4 sm:p-5 md:p-6 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-//             <svg
-//               className="w-6 h-6 sm:w-7 sm:h-7 mb-2 sm:mb-3 text-gray-600"
-//               aria-hidden="true"
-//               xmlns="http://www.w3.org/2000/svg"
-//               fill="none"
-//               viewBox="0 0 24 24"
-//             >
-//               <path
-//                 stroke="currentColor"
-//                 strokeLinecap="round"
-//                 strokeLinejoin="round"
-//                 strokeWidth="2"
-//                 d="M10 21v-9m3-4H7.5a2.5 2.5 0 1 1 0-5c1.5 0 2.875 1.25 3.875 2.5M14 21v-9m-9 0h14v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8ZM4 8h16a1 1 0 0 1 1 1v3H3V9a1 1 0 0 1 1-1Zm12.155-5c-3 0-5.5 5-5.5 5h5.5a2.5 2.5 0 0 0 0-5Z"
-//               />
-//             </svg>
-//             <h5 className="mb-2 text-xl sm:text-2xl font-semibold tracking-tight text-gray-900">
-//               Chattagram - Branch Office
-//               <hr className="mt-1 sm:mt-2" />
-//             </h5>
-//             <p className="mb-3 text-sm sm:text-base text-gray-600 leading-relaxed">
-//               Way To Nikah, Third Floor <br />
-//               Noble Building, Above Gramin Bank, Bashundhara <br />
-//               Madani Road, Bashundhara, Dhaka, Bangladesh <br />
-//               Call: 7025115588 <br className="hidden sm:block" />
-//               Mob: 01702544116
-//             </p>
-//           </div>
-
-//           {/* Rajshahi Branch */}
-//           <div className="bg-green-200 w-full max-w-sm mx-auto p-4 sm:p-5 md:p-6 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-//             <svg
-//               className="w-6 h-6 sm:w-7 sm:h-7 mb-2 sm:mb-3 text-gray-600"
-//               aria-hidden="true"
-//               xmlns="http://www.w3.org/2000/svg"
-//               fill="none"
-//               viewBox="0 0 24 24"
-//             >
-//               <path
-//                 stroke="currentColor"
-//                 strokeLinecap="round"
-//                 strokeLinejoin="round"
-//                 strokeWidth="2"
-//                 d="M10 21v-9m3-4H7.5a2.5 2.5 0 1 1 0-5c1.5 0 2.875 1.25 3.875 2.5M14 21v-9m-9 0h14v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8ZM4 8h16a1 1 0 0 1 1 1v3H3V9a1 1 0 0 1 1-1Zm12.155-5c-3 0-5.5 5-5.5 5h5.5a2.5 2.5 0 0 0 0-5Z"
-//               />
-//             </svg>
-//             <h5 className="mb-2 text-xl sm:text-2xl font-semibold tracking-tight text-gray-900">
-//               Rajshahi - Branch Office
-//               <hr className="mt-1 sm:mt-2" />
-//             </h5>
-//             <p className="mb-3 text-sm sm:text-base text-gray-600 leading-relaxed">
-//               Way To Nikah, Third Floor <br />
-//               Noble Building, Above Gramin Bank, Bashundhara <br />
-//               Madani Road, Bashundhara, Dhaka, Bangladesh <br />
-//               Call: 7025115588 <br className="hidden sm:block" />
-//               Mob: 01702441166
-//             </p>
-//           </div>
-//         </div>
-//       </div>
-
-//       <div className="pb-5">
-//         <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 bg-gradient-to-r from-[#67B26F] to-[#4ca2cd]  dark:text-gray-800">
-//           <div className="flex flex-col justify-between">
-//             <div className="space-y-2">
-//               <h2 className="text-4xl font-bold leading-tight lg:text-5xl">
-//                 Let's talk!
-//               </h2>
-//               <div className="dark:text-gray-600">
-//                 Vivamus in nisl metus? Phasellus.
-//               </div>
-//             </div>
-//           </div>
-//           <form noValidate="" className="space-y-6">
-//             <div>
-//               <label htmlFor="name" className="text-sm">
-//                 Full name
-//               </label>
-//               <input
-//                 id="name"
-//                 type="text"
-//                 placeholder="Enter Your Name"
-//                 className="w-full p-3 rounded dark:bg-gray-100"
-//               />
-//             </div>
-//             <div>
-//               <label htmlFor="email" className="text-sm">
-//                 Email
-//               </label>
-//               <input
-//                 id="email"
-//                 type="email"
-//                 className="w-full p-3 rounded dark:bg-gray-100"
-//                 placeholder="Enter Your Email"
-//               />
-//             </div>
-//             <div>
-//               <label htmlFor="message" className="text-sm">
-//                 Message
-//               </label>
-//               <textarea
-//                 id="message"
-//                 rows="3"
-//                 className="w-full p-3 rounded dark:bg-gray-100"
-//                 placeholder="Type Your Message"
-//               ></textarea>
-//             </div>
-//             <button
-//               type="submit"
-//               className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded dark:bg-pink-600 dark:text-gray-50"
-//             >
-//               Send Message
-//             </button>
-//           </form>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Contact;
-
 import React from "react";
+import { MapPin, Phone, Mail, Send } from "lucide-react"; // Make sure to install lucide-react
+
+const BranchCard = ({ city, address, phone, mob }) => (
+  <div className="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-emerald-500/30 transition-all duration-300">
+    <div className="flex items-center gap-4 mb-4">
+      <div className="p-3 bg-emerald-50 text-emerald-600 rounded-lg group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+        <MapPin size={24} />
+      </div>
+      <div>
+        <h3 className="text-xl font-bold text-gray-800">{city}</h3>
+        <p className="text-emerald-600 text-sm font-medium">Branch Office</p>
+      </div>
+    </div>
+    <div className="space-y-3 text-gray-600 text-sm leading-relaxed">
+      <p>{address}</p>
+      <div className="pt-2 border-t border-gray-50">
+        <p className="flex items-center gap-2">
+          <span className="font-semibold text-gray-800 text-xs uppercase">
+            Call:
+          </span>{" "}
+          {phone}
+        </p>
+        <p className="flex items-center gap-2">
+          <span className="font-semibold text-gray-800 text-xs uppercase">
+            Mob:
+          </span>{" "}
+          {mob}
+        </p>
+      </div>
+    </div>
+  </div>
+);
 
 const Contact = () => {
-  return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-gray-50 to-gray-100">
+  const branches = [
+    {
+      city: "Dhaka",
+      address:
+        "Way To Nikah, 3rd Floor, Noble Building, Bashundhara Madani Road, Dhaka.",
+      phone: "7025115588",
+      mob: "01702541166",
+    },
+    {
+      city: "Mymensingh",
+      address:
+        "Way To Nikah, 3rd Floor, Mufizuddin Building, Noumuhol, A/B Guho Road, Mymensingh.",
+      phone: "7025115588",
+      mob: "01702544166",
+    },
+    {
+      city: "Chattagram",
+      address:
+        "Way To Nikah, 3rd Floor, GEC Circle, Central Plaza, Chattagram, Bangladesh.",
+      phone: "7025115588",
+      mob: "01702544116",
+    },
+    {
+      city: "Rajshahi",
+      address:
+        "Way To Nikah, 3rd Floor, Alupatti, Padma Garden Road, Rajshahi, Bangladesh.",
+      phone: "7025115588",
+      mob: "01702441166",
+    },
+  ];
 
-      {/* Header */}
-      <div className="text-center pt-14 px-4">
-        <h1 className="text-3xl md:text-5xl font-bold text-gray-800">
-          We’re here to help you
+  return (
+    <div className="w-full h-full bg-gradient-to-tr from-[#f0f9ff] via-[#f5f5f5] to-[#e7f5ee] p-15 sm:px-6 lg:px-8">
+      {/* Header Section */}
+      <div className="max-w-7xl mx-auto text-center mb-16">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
+          We are here to <span className="text-emerald-600">assist you.</span>
         </h1>
-        <p className="text-gray-500 mt-3 max-w-2xl mx-auto">
-          Feel free to reach out to us anytime. Our team will get back to you as soon as possible.
+        <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+          Visit one of our branch offices or send us a message directly. We
+          usually respond within 24 hours.
         </p>
       </div>
 
-      {/* Branch Cards */}
-      <div className="max-w-7xl mx-auto px-4 py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-
-        {[
-          {
-            title: "Dhaka Branch",
-            phone: "01702541166",
-            call: "7025115588",
-          },
-          {
-            title: "Mymensingh Branch",
-            phone: "01702544166",
-            call: "7025115588",
-          },
-          {
-            title: "Chattagram Branch",
-            phone: "01702544116",
-            call: "7025115588",
-          },
-          {
-            title: "Rajshahi Branch",
-            phone: "01702441166",
-            call: "7025115588",
-          },
-        ].map((item, idx) => (
-          <div
-            key={idx}
-            className="bg-white rounded-2xl shadow-md hover:shadow-xl transition p-6 border border-gray-100"
-          >
-            <h2 className="text-xl font-semibold text-gray-800 mb-3">
-              {item.title}
-            </h2>
-
-            <div className="space-y-1 text-gray-600 text-sm">
-              <p>📞 Call: {item.call}</p>
-              <p>📱 Mobile: {item.phone}</p>
-              <p>📍 Way To Nikah Office</p>
-            </div>
-          </div>
+      {/* Cards Grid Section */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        {branches.map((branch, index) => (
+          <BranchCard key={index} {...branch} />
         ))}
       </div>
 
       {/* Contact Form Section */}
-      <div className="max-w-6xl mx-auto px-4 pb-16">
-        <div className="bg-white shadow-xl rounded-2xl grid md:grid-cols-2 overflow-hidden">
-
-          {/* Left Info */}
-          <div className="p-10 bg-gradient-to-br from-blue-600 to-indigo-600 text-white">
-            <h2 className="text-3xl font-bold">Let’s Talk</h2>
-            <p className="mt-4 text-blue-100">
-              Have a question or need support? Fill out the form and we’ll respond shortly.
-            </p>
+      <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+        <div className="flex flex-col md:flex-row">
+          {/* Info Side */}
+          <div className="md:w-1/3 bg-emerald-600 p-10 text-white flex flex-col justify-between">
+            <div>
+              <h2 className="text-3xl font-bold mb-4">Let's talk!</h2>
+              <p className="text-emerald-100">
+                Have questions about our services? Our team is ready to help you
+                find the right path.
+              </p>
+            </div>
+            <div className="mt-8 space-y-4">
+              <div className="flex items-center gap-3">
+                <Mail size={20} className="text-emerald-200" />
+                <span>support@waytonikah.com</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Phone size={20} className="text-emerald-200" />
+                <span>+880 1702-541166</span>
+              </div>
+            </div>
           </div>
 
-          {/* Form */}
-          <form className="p-10 space-y-5">
-
-            <div>
-              <label className="text-sm text-gray-600">Full Name</label>
-              <input
-                type="text"
-                placeholder="Enter your name"
-                className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+          {/* Form Side */}
+          <form
+            className="md:w-2/3 p-10 space-y-6 bg-white"
+            onSubmit={(e) => e.preventDefault()}
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="John Doe"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  placeholder="john@example.com"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                />
+              </div>
             </div>
-
             <div>
-              <label className="text-sm text-gray-600">Email</label>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
-            <div>
-              <label className="text-sm text-gray-600">Message</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Message
+              </label>
               <textarea
                 rows="4"
-                placeholder="Write your message..."
-                className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="How can we help you?"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
               ></textarea>
             </div>
-
             <button
               type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition"
+              className="group w-full sm:w-max px-8 py-4 bg-emerald-600 text-white font-bold rounded-xl hover:bg-emerald-700 transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-200"
             >
               Send Message
+              <Send
+                size={18}
+                className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+              />
             </button>
           </form>
-
         </div>
       </div>
     </div>

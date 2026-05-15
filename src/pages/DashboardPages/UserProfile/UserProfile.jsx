@@ -58,7 +58,7 @@ const UserProfile = () => {
         {/* Actions */}
         <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
           <Link
-            to=""
+           to="/underconstruction"
             className="px-5 py-2 text-sm font-medium rounded-lg 
             bg-gradient-to-r from-purple-500 to-indigo-500 
             text-white hover:opacity-90 transition"
@@ -67,7 +67,7 @@ const UserProfile = () => {
           </Link>
 
           <Link
-            to="/"
+            to="/underconstruction"
             className="px-5 py-2 text-sm font-medium rounded-lg 
             border border-gray-200 text-gray-700 hover:bg-gray-50 transition"
           >

@@ -198,57 +198,70 @@ const BeAdminDataRow = ({ register }) => {
       </tr>
 
       {/* 🔥 Flowbite style modal (React version) */}
+      {/* Professional Modal */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex justify-center items-center bg-black/50">
-          <div className="relative p-4 w-full max-w-2xl">
-            <div className="bg-white rounded shadow p-6">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+          {/* Modal Box */}
+          <div className="w-full max-w-lg mx-4 animate-fadeIn">
+            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
               {/* Header */}
-              <div className="flex items-center justify-between border-b pb-4">
-                <h3 className="text-xl font-bold">
-                  Do you want to be an admin? - {name}
-                </h3>
+              <div className="flex items-center justify-between px-6 py-4 border-b">
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800">
+                    Admin Role Request
+                  </h3>
+                  <p className="text-sm text-gray-500">
+                    Confirm role upgrade request
+                  </p>
+                </div>
 
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="w-8 h-8 flex items-center justify-center hover:bg-gray-200 rounded"
+                  className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-gray-100 transition"
                 >
-                  ✖
+                  ✕
                 </button>
               </div>
 
               {/* Body */}
-              <div className="py-5 space-y-4 text-gray-600">
-                <h4 className="font-bold text-lg">Email: {email}</h4>
+              <div className="px-6 py-5 space-y-4">
+                <div className="flex items-center gap-3">
+                  <img
+                    src={photourl}
+                    alt="profile"
+                    className="w-12 h-12 rounded-full object-cover border"
+                  />
 
-                <p>
-                  A website admin ensures optimal site performance, security,
-                  and functionality by managing content, troubleshooting
-                  technical issues, and maintaining server uptime daily. They
-                  are crucial for protecting data through backups, improving
-                  user experience, and enforcing security protocols against
-                  cyber threats.
-                </p>
+                  <div>
+                    <h4 className="font-medium text-gray-800">{name}</h4>
+                    <p className="text-sm text-gray-500">{email}</p>
+                  </div>
+                </div>
 
-                <p>
-                  If you want to change your role plz click the accpet button
-                  otherwise decline button
-                </p>
+                <div className="text-sm text-gray-600 leading-relaxed">
+                  <p>
+                    You are requesting to upgrade your account to <b>Admin</b>.
+                    Admins can manage users, content, and system settings.
+                    Please confirm you understand the responsibilities before
+                    proceeding.
+                  </p>
+                </div>
               </div>
 
               {/* Footer */}
-              <div className="flex items-center gap-4 border-t pt-4">
+              <div className="px-6 py-4 border-t flex justify-end gap-3 bg-gray-50">
                 <button
-                  onClick={handleRequest}
-                  className="bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:ring-purple-200 text-white px-4 py-2 rounded"
+                  onClick={() => setIsOpen(false)}
+                  className="px-4 py-2 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-100 transition"
                 >
-                  I accept
+                  Cancel
                 </button>
 
                 <button
-                  onClick={() => setIsOpen(false)}
-                  className="border px-4 py-2 rounded "
+                  onClick={handleRequest}
+                  className="px-5 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium hover:opacity-90 transition shadow-md"
                 >
-                  Decline
+                  Confirm Request
                 </button>
               </div>
             </div>

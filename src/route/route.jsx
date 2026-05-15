@@ -25,8 +25,8 @@ import ManageKabinReques from "../pages/DashboardPages/Admin/ManageKabinReques";
 import MyKabinStatus from "../pages/DashboardPages/MyKabinStatus/MyKabinStatus";
 import NotFound from "../pages/Error/NotFound";
 import Banner from "../components/Banner";
-
-
+import About from "../components/About";
+import UnderConstruction from "../components/UnderConstruction";
 
 export const router = createBrowserRouter([
   {
@@ -41,14 +41,14 @@ export const router = createBrowserRouter([
         path: "/home",
         element: <Home />,
       },
-      // {
-      //   path: "/login",
-      //   element: <Login />,
-      // },
-      // {
-      //   path: "/registration",
-      //   element: <Register />,
-      // },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/registration",
+        element: <Register />,
+      },
       {
         path: "/myprofile",
         element: <MyProfile />,
@@ -90,17 +90,25 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path:"banner",
-        element:<Banner/>
+        path: "banner",
+        element: <Banner />,
       },
       {
-        path:'not-found',
-        element:<NotFound></NotFound>
+        path: "not-found",
+        element: <NotFound></NotFound>,
+      },
+      {
+        path:'about',
+        element:<About></About>
+      },
+      {
+        path:'underconstruction',
+        element:<UnderConstruction></UnderConstruction>
       }
     ],
   },
-  { path: "/login", element: <Login /> },
-  { path: "/registration", element: <Register /> },
+  // { path: "/login", element: <Login /> },
+  // { path: "/registration", element: <Register /> },
   {
     path: "dashboard",
     element: (
@@ -138,17 +146,17 @@ export const router = createBrowserRouter([
         Component: UserRegistration,
       },
       {
-        path:"be-admin",
-        Component:BeAdmin
+        path: "be-admin",
+        Component: BeAdmin,
       },
       {
-        path:"request-kabin",
-        Component:ManageKabinReques
+        path: "request-kabin",
+        Component: ManageKabinReques,
       },
       {
-        path:'kabin-status',
-        Component:MyKabinStatus
-      }
+        path: "kabin-status",
+        Component: MyKabinStatus,
+      },
     ],
   },
 ]);
