@@ -25,7 +25,7 @@ const Register = () => {
 
     const newRegister = { name, email, photourl, password };
     //Save user to DB
-    fetch("http://localhost:3000/Register", {
+    fetch("https://smart-register-server.vercel.app/Register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -69,7 +69,7 @@ const Register = () => {
           created_at: new Date().toISOString(),
         };
 
-        fetch("http://localhost:3000/Register", {
+        fetch("https://smart-register-server.vercel.app/Register", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
