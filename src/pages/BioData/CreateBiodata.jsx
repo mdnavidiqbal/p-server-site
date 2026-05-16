@@ -34,7 +34,7 @@ const CreateBiodata = () => {
   // Form submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
+    // console.log("Form Data Submitted:", formData);
     alert("Biodata submitted! Check console for details.");
   };
 

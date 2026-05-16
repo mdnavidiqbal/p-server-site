@@ -1,4 +1,3 @@
-
 import React, { useContext, useState, useEffect, useRef } from "react"; // 'use' ke 'useContext' kora hoyeche safety jonno
 import { Link, useNavigate, useLocation } from "react-router";
 
@@ -277,4 +276,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

@@ -7,7 +7,7 @@ import Loading from "../Loading/Loading";
 
 const MyProfile = () => {
   const { user } = use(AuthContext);
-  console.log(user)
+  // console.log(user)
   const axiosSecure = useAxiosSecure();
   const { data: register = [], isLoading } = useQuery({
     queryKey: ["register", user?.email],

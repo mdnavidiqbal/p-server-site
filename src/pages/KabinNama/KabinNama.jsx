@@ -68,7 +68,7 @@ export default function KabinNama() {
 
     useremail: "",
   });
-  /* ✅ AUTO SET EMAIL */
+  /*  AUTO SET EMAIL */
   useEffect(() => {
     if (user?.email) {
       setForm((prev) => ({
@@ -78,7 +78,7 @@ export default function KabinNama() {
     }
   }, [user]);
 
-  /* ✅ FIXED CHANGE HANDLER */
+  /* FIXED CHANGE HANDLER */
   const handleChange = useCallback((e) => {
     const { name, value } = e.target;
 
